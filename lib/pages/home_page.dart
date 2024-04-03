@@ -20,12 +20,14 @@ class HomePage extends StatelessWidget {
                     const Flexible(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
                             'Mobile Developer',
                             style: TextStyle(
                                 fontSize: 26, fontWeight: FontWeight.bold),
                           ),
+                          SizedBox(height: 16),
                           Text(
                             'Hi, my name is Danubio. I\'m passionate about tech and a mobile developer specializing in Flutter.',
                             style: TextStyle(fontSize: 18),

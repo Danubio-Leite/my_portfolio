@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
 class AboutPage extends StatelessWidget {
@@ -19,15 +20,19 @@ class AboutPage extends StatelessWidget {
                   const Flexible(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           'About Me',
                           style: TextStyle(
                               fontSize: 26, fontWeight: FontWeight.bold),
                         ),
-                        Text(
-                          'I am passionate about mobile technologies and I am always eager to learn new things. I have been working with Flutter for the past 2 years and I have built a few apps with it. I am also a big fan of open-source software and I love to contribute to the community. I am currently looking for new opportunities to work on exciting projects. If you have any questions or would like to work with me, feel free to contact me.',
-                          style: TextStyle(fontSize: 18),
+                        SizedBox(height: 16),
+                        Flexible(
+                          child: AutoSizeText(
+                            'I am passionate about mobile technologies and I am always eager to learn new things. I have been working with Flutter for the past 2 years and I have built a few apps with it. I am also a big fan of open-source software and I love to contribute to the community. I am currently looking for new opportunities to work on exciting projects. If you have any questions or would like to work with me, feel free to contact me.',
+                            style: TextStyle(fontSize: 18),
+                          ),
                         ),
                       ],
                     ),
