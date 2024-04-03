@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/pages/about_page.dart';
+import 'package:my_portfolio/pages/contact_page.dart';
+import 'package:my_portfolio/pages/projects_page.dart';
 import 'pages/home_page.dart';
 
 class MyApp extends StatelessWidget {
@@ -40,9 +42,11 @@ class MyApp extends StatelessWidget {
             ),
             Expanded(
               child: ListView(
-                children: [
+                children: const [
                   HomePage(),
                   AboutPage(),
+                  ProjectsPage(),
+                  ContactPage(),
                 ],
               ),
             ),
