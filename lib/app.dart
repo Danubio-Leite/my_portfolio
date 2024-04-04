@@ -37,46 +37,82 @@ class MyApp extends StatelessWidget {
           backgroundColor: const Color.fromARGB(255, 54, 84, 83),
           elevation: 0,
           scrolledUnderElevation: 0,
-          title: const Row(
+          title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Row(
                 children: [
-                  Text(
-                    'Home',
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.white,
+                  GestureDetector(
+                    onTap: () {
+                      controller.animateToPage(
+                        0,
+                        duration: const Duration(milliseconds: 500),
+                        curve: Curves.easeInOut,
+                      );
+                    },
+                    child: const Text(
+                      'Home',
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ],
               ),
               Row(
                 children: [
-                  Text(
-                    'About',
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.white,
+                  GestureDetector(
+                    onTap: () {
+                      controller.animateToPage(
+                        1,
+                        duration: const Duration(milliseconds: 500),
+                        curve: Curves.easeInOut,
+                      );
+                    },
+                    child: const Text(
+                      'About',
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
-                  SizedBox(width: 16),
-                  Text(
-                    'Projects',
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.white,
+                  const SizedBox(width: 16),
+                  GestureDetector(
+                    onTap: () {
+                      controller.animateToPage(
+                        2,
+                        duration: const Duration(milliseconds: 500),
+                        curve: Curves.easeInOut,
+                      );
+                    },
+                    child: const Text(
+                      'Projects',
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
-                  SizedBox(width: 16),
-                  Text(
-                    'Contact',
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.white,
+                  const SizedBox(width: 16),
+                  GestureDetector(
+                    onTap: () {
+                      controller.animateToPage(
+                        3,
+                        duration: const Duration(milliseconds: 500),
+                        curve: Curves.easeInOut,
+                      );
+                    },
+                    child: const Text(
+                      'Contact',
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
-                  SizedBox(width: 16),
+                  const SizedBox(width: 16),
                 ],
               ),
             ],

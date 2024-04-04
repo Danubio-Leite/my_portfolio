@@ -25,7 +25,10 @@ class AboutPage extends StatelessWidget {
                         Text(
                           'About Me',
                           style: TextStyle(
-                              fontSize: 26, fontWeight: FontWeight.bold),
+                            fontSize: 26,
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromRGBO(69, 117, 116, 1),
+                          ),
                         ),
                         SizedBox(height: 16),
                         Flexible(

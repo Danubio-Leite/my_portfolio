@@ -22,7 +22,11 @@ class ProjectsPage extends StatelessWidget {
                 children: [
                   const Text(
                     'Some Projects',
-                    style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                      fontSize: 26,
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromRGBO(69, 117, 116, 1),
+                    ),
                   ),
                   const SizedBox(height: 32),
                   Flexible(
