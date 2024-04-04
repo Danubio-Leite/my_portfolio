@@ -20,8 +20,11 @@ class ContactPage extends StatelessWidget {
                   children: [
                     const Text(
                       'Contact Me',
-                      style:
-                          TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                        fontSize: 26,
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromRGBO(69, 117, 116, 1),
+                      ),
                     ),
                     const SizedBox(height: 32),
                     const Text(
@@ -71,7 +74,7 @@ class ContactPage extends StatelessWidget {
                     ElevatedButton(
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.black,
+                        backgroundColor: const Color.fromRGBO(69, 117, 116, 1),
                         padding: const EdgeInsets.symmetric(
                             vertical: 16, horizontal: 32),
                         shape: RoundedRectangleBorder(

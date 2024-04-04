@@ -21,26 +21,98 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        floatingActionButton: Padding(
+          padding: const EdgeInsets.only(
+            right: 12.0,
+          ),
+          child: FloatingActionButton(
+            onPressed: () {},
+            backgroundColor: const Color.fromARGB(255, 54, 84, 83),
+            foregroundColor: Colors.white,
+            child: const Icon(Icons.message),
+          ),
+        ),
+        backgroundColor: const Color.fromARGB(255, 54, 84, 83),
         appBar: AppBar(
+          backgroundColor: const Color.fromARGB(255, 54, 84, 83),
           elevation: 0,
           scrolledUnderElevation: 0,
-          title: const Row(
+          title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Row(
                 children: [
-                  SizedBox(width: 16),
-                  Text('Home'),
+                  GestureDetector(
+                    onTap: () {
+                      controller.animateToPage(
+                        0,
+                        duration: const Duration(milliseconds: 500),
+                        curve: Curves.easeInOut,
+                      );
+                    },
+                    child: const Text(
+                      'Home',
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
                 ],
               ),
               Row(
                 children: [
-                  Text('About'),
-                  SizedBox(width: 16),
-                  Text('Projects'),
-                  SizedBox(width: 16),
-                  Text('Contact'),
-                  SizedBox(width: 16),
+                  GestureDetector(
+                    onTap: () {
+                      controller.animateToPage(
+                        1,
+                        duration: const Duration(milliseconds: 500),
+                        curve: Curves.easeInOut,
+                      );
+                    },
+                    child: const Text(
+                      'About',
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 16),
+                  GestureDetector(
+                    onTap: () {
+                      controller.animateToPage(
+                        2,
+                        duration: const Duration(milliseconds: 500),
+                        curve: Curves.easeInOut,
+                      );
+                    },
+                    child: const Text(
+                      'Projects',
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 16),
+                  GestureDetector(
+                    onTap: () {
+                      controller.animateToPage(
+                        3,
+                        duration: const Duration(milliseconds: 500),
+                        curve: Curves.easeInOut,
+                      );
+                    },
+                    child: const Text(
+                      'Contact',
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 16),
                 ],
               ),
             ],
@@ -57,11 +129,27 @@ class MyApp extends StatelessWidget {
                   scrollDirection: Axis.vertical,
                   physics: const NeverScrollableScrollPhysics(),
                   controller: controller,
-                  children: const [
-                    HomePage(),
-                    AboutPage(),
-                    ProjectsPage(),
-                    ContactPage(),
+                  children: [
+                    Card(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(2),
+                        ),
+                        child: const HomePage()),
+                    Card(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(2),
+                        ),
+                        child: const AboutPage()),
+                    Card(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(2),
+                        ),
+                        child: const ProjectsPage()),
+                    Card(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(2),
+                        ),
+                        child: const ContactPage()),
                   ],
                 ),
               ),
@@ -77,14 +165,14 @@ class MyApp extends StatelessWidget {
                 controller: controller,
                 count: 4,
                 effect: const ExpandingDotsEffect(
-                  activeDotColor: Colors.black,
-                  dotColor: Colors.grey,
+                  activeDotColor: Colors.white,
+                  dotColor: Colors.white,
                   dotHeight: 16,
                   dotWidth: 16,
                   spacing: 8,
                 ),
               ),
-              const SizedBox(width: 16),
+              const SizedBox(width: 4),
             ],
           ),
         ),

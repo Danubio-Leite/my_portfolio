@@ -17,20 +17,40 @@ class HomePage extends StatelessWidget {
                 padding: const EdgeInsets.all(16),
                 child: Row(
                   children: [
-                    const Flexible(
+                    Flexible(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            'Mobile Developer',
+                          const Text(
+                            'Hi!',
                             style: TextStyle(
-                                fontSize: 26, fontWeight: FontWeight.bold),
+                                fontSize: 26,
+                                fontWeight: FontWeight.bold,
+                                color: Color.fromRGBO(69, 117, 116, 1)),
                           ),
-                          SizedBox(height: 16),
-                          Text(
-                            'Hi, my name is Danubio. I\'m passionate about tech and a mobile developer specializing in Flutter.',
-                            style: TextStyle(fontSize: 18),
+                          const SizedBox(height: 16),
+                          Flexible(
+                            child: RichText(
+                              text: const TextSpan(
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.black,
+                                ),
+                                children: <TextSpan>[
+                                  TextSpan(
+                                      text:
+                                          'My name is Danubio. I\'m passionate about tech and a '),
+                                  TextSpan(
+                                      text: 'mobile developer',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          color:
+                                              Color.fromRGBO(69, 117, 116, 1))),
+                                  TextSpan(text: ' specializing in Flutter.'),
+                                ],
+                              ),
+                            ),
                           ),
                         ],
                       ),
