@@ -13,6 +13,7 @@ dependencies:
   smooth_page_indicator:
   web_smooth_scroll:
   auto_size_text:
+  carousel_slider:
 
   cupertino_icons: ^1.0.2
 

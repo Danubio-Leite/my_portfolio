@@ -1,4 +1,7 @@
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:my_portfolio/components/git_button.dart';
 
 import '../components/play_button.dart';
@@ -38,7 +41,7 @@ class ProjectsPage extends StatelessWidget {
                           child: Column(
                             children: [
                               Flexible(
-                                  child: Image.asset('images/iphone_15.png')),
+                                  child: Image.asset('images/pixel_3.png')),
                               const SizedBox(height: 16),
                               const Text(
                                 'Evolução Médica',
@@ -64,7 +67,45 @@ class ProjectsPage extends StatelessWidget {
                           child: Column(
                             children: [
                               Flexible(
-                                  child: Image.asset('images/iphone_15.png')),
+                                child: LayoutBuilder(
+                                  builder: (BuildContext context,
+                                      BoxConstraints constraints) {
+                                    return Stack(
+                                      alignment: Alignment.center,
+                                      children: [
+                                        AspectRatio(
+                                          aspectRatio: 1,
+                                          child: CarouselSlider(
+                                            options: CarouselOptions(
+                                              autoPlay: false,
+                                              aspectRatio: 2.0,
+                                              enlargeCenterPage: false,
+                                            ),
+                                            items: [
+                                              'images/screenshots/calculadora/Screen_1.png',
+                                              'images/screenshots/calculadora/Screen_2.png',
+                                              'images/screenshots/calculadora/Screen_3.png',
+                                              'images/screenshots/calculadora/Screen_4.png',
+                                              'images/screenshots/calculadora/Screen_5.png',
+                                              'images/screenshots/calculadora/Screen_6.png',
+                                            ]
+                                                .map((item) => Container(
+                                                      child: Center(
+                                                        child: Image.asset(
+                                                          item,
+                                                          fit: BoxFit.cover,
+                                                        ),
+                                                      ),
+                                                    ))
+                                                .toList(),
+                                          ),
+                                        ),
+                                        Image.asset('images/pixel_3.png'),
+                                      ],
+                                    );
+                                  },
+                                ),
+                              ),
                               const SizedBox(height: 16),
                               const Text(
                                 'Calculadora do Bancário',
@@ -96,7 +137,7 @@ class ProjectsPage extends StatelessWidget {
                           child: Column(
                             children: [
                               Flexible(
-                                  child: Image.asset('images/iphone_15.png')),
+                                  child: Image.asset('images/pixel_3.png')),
                               const SizedBox(height: 16),
                               const Text(
                                 'Minha Biblioteca',
