@@ -23,13 +23,15 @@ class HomePage extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Mobile Developer',
+                            'Hi!',
                             style: TextStyle(
-                                fontSize: 26, fontWeight: FontWeight.bold),
+                                fontSize: 26,
+                                fontWeight: FontWeight.bold,
+                                color: Color.fromRGBO(69, 117, 116, 1)),
                           ),
                           SizedBox(height: 16),
                           Text(
-                            'Hi, my name is Danubio. I\'m passionate about tech and a mobile developer specializing in Flutter.',
+                            'My name is Danubio. I\'m passionate about tech and a mobile developer specializing in Flutter.',
                             style: TextStyle(fontSize: 18),
                           ),
                         ],
