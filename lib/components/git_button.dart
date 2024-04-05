@@ -2,11 +2,13 @@
 import 'package:flutter/material.dart';
 
 class GitButton extends StatelessWidget {
+  final VoidCallback onPressed;
   bool text;
 
   GitButton({
     Key? key,
     required this.text,
+    required this.onPressed,
   }) : super(key: key);
 
   @override
@@ -16,7 +18,7 @@ class GitButton extends StatelessWidget {
       width: text ? 250 : 64,
       child: Expanded(
         child: ElevatedButton(
-            onPressed: () {},
+            onPressed: onPressed,
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.black,
               padding: const EdgeInsets.symmetric(vertical: 16),
