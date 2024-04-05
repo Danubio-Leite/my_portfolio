@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class PlayButton extends StatelessWidget {
-  const PlayButton({super.key});
+  final void Function() onPressed;
+  const PlayButton({super.key, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +11,7 @@ class PlayButton extends StatelessWidget {
       width: 300,
       child: Expanded(
         child: ElevatedButton(
-            onPressed: () {},
+            onPressed: onPressed,
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.black,
               padding: const EdgeInsets.symmetric(vertical: 16),

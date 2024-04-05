@@ -1,13 +1,39 @@
-import 'package:carousel_slider/carousel_slider.dart';
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:my_portfolio/components/git_button.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../components/play_button.dart';
 
-class ProjectsPage extends StatelessWidget {
+class ProjectsPage extends StatefulWidget {
   const ProjectsPage({super.key});
+
+  @override
+  State<ProjectsPage> createState() => _ProjectsPageState();
+}
+
+class _ProjectsPageState extends State<ProjectsPage> {
+  int _imageIndex = 1;
+  late Timer _timer;
+
+  @override
+  void initState() {
+    super.initState();
+    _timer = Timer.periodic(const Duration(milliseconds: 2500), (timer) {
+      setState(() {
+        _imageIndex = _imageIndex % 6 + 1;
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    _timer.cancel();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +67,23 @@ class ProjectsPage extends StatelessWidget {
                           child: Column(
                             children: [
                               Flexible(
-                                  child: Image.asset('images/pixel_3.png')),
+                                child: LayoutBuilder(
+                                  builder: (BuildContext context,
+                                      BoxConstraints constraints) {
+                                    return Stack(
+                                      alignment: Alignment.center,
+                                      children: [
+                                        Image.asset(
+                                          'images/screenshots/evolucao/Screen_$_imageIndex.png',
+                                          width: constraints.maxWidth * 0.855,
+                                          height: constraints.maxHeight * 0.855,
+                                        ),
+                                        Image.asset('images/pixel_3.png'),
+                                      ],
+                                    );
+                                  },
+                                ),
+                              ),
                               const SizedBox(height: 16),
                               const Text(
                                 'Evolução Médica',
@@ -58,6 +100,15 @@ class ProjectsPage extends StatelessWidget {
                               const SizedBox(height: 16),
                               GitButton(
                                 text: true,
+                                onPressed: () async {
+                                  const url =
+                                      'https://github.com/Danubio-Leite/evolucao_medica_2023';
+                                  if (await canLaunchUrl(Uri.parse(url))) {
+                                    await launchUrl(Uri.parse(url));
+                                  } else {
+                                    throw 'Could not launch $url';
+                                  }
+                                },
                               ),
                             ],
                           ),
@@ -73,32 +124,10 @@ class ProjectsPage extends StatelessWidget {
                                     return Stack(
                                       alignment: Alignment.center,
                                       children: [
-                                        AspectRatio(
-                                          aspectRatio: 1,
-                                          child: CarouselSlider(
-                                            options: CarouselOptions(
-                                              autoPlay: false,
-                                              aspectRatio: 2.0,
-                                              enlargeCenterPage: false,
-                                            ),
-                                            items: [
-                                              'images/screenshots/calculadora/Screen_1.png',
-                                              'images/screenshots/calculadora/Screen_2.png',
-                                              'images/screenshots/calculadora/Screen_3.png',
-                                              'images/screenshots/calculadora/Screen_4.png',
-                                              'images/screenshots/calculadora/Screen_5.png',
-                                              'images/screenshots/calculadora/Screen_6.png',
-                                            ]
-                                                .map((item) => Container(
-                                                      child: Center(
-                                                        child: Image.asset(
-                                                          item,
-                                                          fit: BoxFit.cover,
-                                                        ),
-                                                      ),
-                                                    ))
-                                                .toList(),
-                                          ),
+                                        Image.asset(
+                                          'images/screenshots/calculadora/Screen_$_imageIndex.png',
+                                          width: constraints.maxWidth * 0.855,
+                                          height: constraints.maxHeight * 0.855,
                                         ),
                                         Image.asset('images/pixel_3.png'),
                                       ],
@@ -123,9 +152,32 @@ class ProjectsPage extends StatelessWidget {
                                 width: 300,
                                 child: Row(
                                   children: [
-                                    GitButton(text: false),
+                                    GitButton(
+                                      text: false,
+                                      onPressed: () async {
+                                        const url =
+                                            'https://github.com/Danubio-Leite/calculadora_bancario';
+                                        if (await canLaunchUrl(
+                                            Uri.parse(url))) {
+                                          await launchUrl(Uri.parse(url));
+                                        } else {
+                                          throw 'Could not launch $url';
+                                        }
+                                      },
+                                    ),
                                     const SizedBox(width: 8),
-                                    const Flexible(child: PlayButton()),
+                                    Flexible(child: PlayButton(
+                                      onPressed: () async {
+                                        const url =
+                                            'https://play.google.com/store/apps/details?id=br.com.danubioleite.calculadora_bancario';
+                                        if (await canLaunchUrl(
+                                            Uri.parse(url))) {
+                                          await launchUrl(Uri.parse(url));
+                                        } else {
+                                          throw 'Could not launch $url';
+                                        }
+                                      },
+                                    )),
                                   ],
                                 ),
                               ),
@@ -137,7 +189,23 @@ class ProjectsPage extends StatelessWidget {
                           child: Column(
                             children: [
                               Flexible(
-                                  child: Image.asset('images/pixel_3.png')),
+                                child: LayoutBuilder(
+                                  builder: (BuildContext context,
+                                      BoxConstraints constraints) {
+                                    return Stack(
+                                      alignment: Alignment.center,
+                                      children: [
+                                        Image.asset(
+                                          'images/screenshots/livros/Screen_$_imageIndex.png',
+                                          width: constraints.maxWidth * 0.855,
+                                          height: constraints.maxHeight * 0.855,
+                                        ),
+                                        Image.asset('images/pixel_3.png'),
+                                      ],
+                                    );
+                                  },
+                                ),
+                              ),
                               const SizedBox(height: 16),
                               const Text(
                                 'Minha Biblioteca',
@@ -154,6 +222,15 @@ class ProjectsPage extends StatelessWidget {
                               const SizedBox(height: 16),
                               GitButton(
                                 text: true,
+                                onPressed: () async {
+                                  const url =
+                                      'https://github.com/Danubio-Leite/private_library';
+                                  if (await canLaunchUrl(Uri.parse(url))) {
+                                    await launchUrl(Uri.parse(url));
+                                  } else {
+                                    throw 'Could not launch $url';
+                                  }
+                                },
                               ),
                             ],
                           ),
