@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:popover/popover.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:web_smooth_scroll/web_smooth_scroll.dart';
 
+import 'components/pop_contact_list.dart';
 import 'pages/about_page.dart';
 import 'pages/contact_page.dart';
 import 'pages/home_page.dart';
@@ -21,15 +23,30 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        floatingActionButton: Padding(
-          padding: const EdgeInsets.only(
-            right: 12.0,
-          ),
-          child: FloatingActionButton(
-            onPressed: () {},
-            backgroundColor: const Color.fromARGB(255, 54, 84, 83),
-            foregroundColor: Colors.white,
-            child: const Icon(Icons.message),
+        floatingActionButton: Builder(
+          builder: (context) => Padding(
+            padding: const EdgeInsets.only(
+              right: 12.0,
+            ),
+            child: FloatingActionButton(
+              onPressed: () {
+                showPopover(
+                  context: context,
+                  bodyBuilder: (context) => ListItems(
+                    controller: controller,
+                  ),
+                  onPop: () => print('Popover was popped!'),
+                  direction: PopoverDirection.left,
+                  width: 400,
+                  height: 300,
+                  arrowHeight: 15,
+                  arrowWidth: 30,
+                );
+              },
+              backgroundColor: const Color.fromARGB(255, 54, 84, 83),
+              foregroundColor: Colors.white,
+              child: const Icon(Icons.message),
+            ),
           ),
         ),
         backgroundColor: const Color.fromARGB(255, 54, 84, 83),

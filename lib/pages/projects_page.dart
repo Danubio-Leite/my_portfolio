@@ -49,13 +49,21 @@ class _ProjectsPageState extends State<ProjectsPage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  const Text(
-                    'Alguns Projetos',
-                    style: TextStyle(
-                      fontSize: 26,
-                      fontWeight: FontWeight.bold,
-                      color: Color.fromRGBO(69, 117, 116, 1),
-                    ),
+                  const Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                        width: 48,
+                      ),
+                      Text(
+                        'Alguns Projetos',
+                        style: TextStyle(
+                          fontSize: 26,
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromRGBO(69, 117, 116, 1),
+                        ),
+                      ),
+                    ],
                   ),
                   const SizedBox(height: 32),
                   Flexible(

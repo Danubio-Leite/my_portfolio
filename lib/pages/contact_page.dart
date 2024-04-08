@@ -1,3 +1,4 @@
+import 'package:awesome_icons/awesome_icons.dart';
 import 'package:flutter/material.dart';
 
 class ContactPage extends StatelessWidget {
@@ -124,15 +125,15 @@ class ContactPage extends StatelessWidget {
                         children: [
                           Icon(Icons.email_outlined),
                           SizedBox(width: 16),
-                          Text('danubioalves@gmail.com'),
+                          SelectableText('danubioalves@gmail.com'),
                         ],
                       ),
                       const SizedBox(height: 8),
                       const Row(
                         children: [
-                          Icon(Icons.telegram_outlined),
+                          Icon(FontAwesomeIcons.whatsapp),
                           SizedBox(width: 16),
-                          Text('+55 88 98155-1948'),
+                          SelectableText('+55 88 98155-1948'),
                         ],
                       ),
                     ],
