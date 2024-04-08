@@ -40,7 +40,7 @@ class HomePage extends StatelessWidget {
                                 children: <TextSpan>[
                                   TextSpan(
                                       text:
-                                          'Me chamo Danúbio. Sou um apaixonado por tecnologia e '),
+                                          'Me chamo Danúbio. Sou apaixonado por tecnologia e '),
                                   TextSpan(
                                       text: 'Desenvolvedor Mobile',
                                       style: TextStyle(
