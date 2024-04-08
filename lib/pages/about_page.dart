@@ -23,7 +23,7 @@ class AboutPage extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'About Me',
+                          'Sobre Mim',
                           style: TextStyle(
                             fontSize: 26,
                             fontWeight: FontWeight.bold,
@@ -33,7 +33,7 @@ class AboutPage extends StatelessWidget {
                         SizedBox(height: 16),
                         Flexible(
                           child: AutoSizeText(
-                            'I am passionate about mobile technologies and I am always eager to learn new things. I have been working with Flutter for the past 2 years and I have built a few apps with it. I am also a big fan of open-source software and I love to contribute to the community. I am currently looking for new opportunities to work on exciting projects. If you have any questions or would like to work with me, feel free to contact me.',
+                            'Sempre em busca de novos conhecimentos, comecei a estudar Flutter 2 anos atrás e com ele tenho desenvolvido aplicações multiplataforma responsivas, intuitivas e com design moderno. Atualmente, estou estou trabalhando em aplicativos próprios e tenho participado de projetos como freelancer. Se você tiver alguma dúvida ou gostaria de trabalhar comigo, sinta-se à vontade para me contatar.',
                             style: TextStyle(fontSize: 18),
                           ),
                         ),

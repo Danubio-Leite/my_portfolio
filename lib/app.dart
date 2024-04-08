@@ -71,7 +71,7 @@ class MyApp extends StatelessWidget {
                       );
                     },
                     child: const Text(
-                      'About',
+                      'Sobre',
                       style: TextStyle(
                         fontSize: 14,
                         color: Colors.white,
@@ -88,7 +88,7 @@ class MyApp extends StatelessWidget {
                       );
                     },
                     child: const Text(
-                      'Projects',
+                      'Projetos',
                       style: TextStyle(
                         fontSize: 14,
                         color: Colors.white,
@@ -105,7 +105,7 @@ class MyApp extends StatelessWidget {
                       );
                     },
                     child: const Text(
-                      'Contact',
+                      'Contato',
                       style: TextStyle(
                         fontSize: 14,
                         color: Colors.white,
@@ -149,7 +149,7 @@ class MyApp extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(2),
                         ),
-                        child: const ContactPage()),
+                        child: ContactPage()),
                   ],
                 ),
               ),

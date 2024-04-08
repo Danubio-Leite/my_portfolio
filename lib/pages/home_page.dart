@@ -23,7 +23,7 @@ class HomePage extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           const Text(
-                            'Hi!',
+                            'Olá!',
                             style: TextStyle(
                                 fontSize: 26,
                                 fontWeight: FontWeight.bold,
@@ -40,14 +40,14 @@ class HomePage extends StatelessWidget {
                                 children: <TextSpan>[
                                   TextSpan(
                                       text:
-                                          'My name is Danubio. I\'m passionate about tech and a '),
+                                          'Me chamo Danúbio. Sou um apaixonado por tecnologia e '),
                                   TextSpan(
-                                      text: 'mobile developer',
+                                      text: 'Desenvolvedor Mobile',
                                       style: TextStyle(
                                           fontWeight: FontWeight.bold,
                                           color:
                                               Color.fromRGBO(69, 117, 116, 1))),
-                                  TextSpan(text: ' specializing in Flutter.'),
+                                  TextSpan(text: ' especializado em Flutter.'),
                                 ],
                               ),
                             ),
