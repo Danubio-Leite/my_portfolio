@@ -50,7 +50,7 @@ class _ProjectsPageState extends State<ProjectsPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   const Text(
-                    'Some Projects',
+                    'Alguns Projetos',
                     style: TextStyle(
                       fontSize: 26,
                       fontWeight: FontWeight.bold,
@@ -93,7 +93,7 @@ class _ProjectsPageState extends State<ProjectsPage> {
                               ),
                               const SizedBox(height: 8),
                               const Text(
-                                'App to help doctors and patients.',
+                                'App para ajudar profissionais de saúde no acompanhamento de pacientes.',
                                 textAlign: TextAlign.center,
                                 style: TextStyle(fontSize: 16),
                               ),
@@ -143,7 +143,7 @@ class _ProjectsPageState extends State<ProjectsPage> {
                                     fontSize: 20, fontWeight: FontWeight.bold),
                               ),
                               const Text(
-                                'App to help bank employees.',
+                                'App direcionado para funcionários de bancos e instituições financeiras.',
                                 textAlign: TextAlign.center,
                                 style: TextStyle(fontSize: 16),
                               ),
@@ -215,7 +215,7 @@ class _ProjectsPageState extends State<ProjectsPage> {
                               ),
                               const SizedBox(height: 8),
                               const Text(
-                                'App to help book lovers.',
+                                'App para gestão de coleções de livros.',
                                 textAlign: TextAlign.center,
                                 style: TextStyle(fontSize: 16),
                               ),
