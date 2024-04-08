@@ -21,18 +21,24 @@ class ContactPage extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Text(
-                        'Contato',
-                        style: TextStyle(
-                          fontSize: 26,
-                          fontWeight: FontWeight.bold,
-                          color: Color.fromRGBO(69, 117, 116, 1),
-                        ),
-                      ),
-                      const SizedBox(height: 32),
-                      const Text(
-                        'Se você tiver alguma dúvida ou gostaria de trabalhar comigo, sinta-se à vontade para me contatar.',
-                        style: TextStyle(fontSize: 18),
+                      const Column(
+                        children: [
+                          Text(
+                            'Vamos conversar sobre seu projeto?',
+                            style: TextStyle(
+                              fontSize: 26,
+                              fontWeight: FontWeight.bold,
+                              color: Color.fromRGBO(69, 117, 116, 1),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 32,
+                          ),
+                          Text(
+                            'Entre em contato!',
+                            style: TextStyle(fontSize: 16),
+                          ),
+                        ],
                       ),
                       TextFormField(
                         validator: (value) {
@@ -112,6 +118,22 @@ class ContactPage extends StatelessWidget {
                           'Enviar Mensagem',
                           style: TextStyle(color: Colors.white),
                         ),
+                      ),
+                      const SizedBox(height: 32),
+                      const Row(
+                        children: [
+                          Icon(Icons.email_outlined),
+                          SizedBox(width: 16),
+                          Text('danubioalves@gmail.com'),
+                        ],
+                      ),
+                      const SizedBox(height: 8),
+                      const Row(
+                        children: [
+                          Icon(Icons.telegram_outlined),
+                          SizedBox(width: 16),
+                          Text('+55 88 98155-1948'),
+                        ],
                       ),
                     ],
                   ),
