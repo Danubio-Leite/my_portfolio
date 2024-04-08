@@ -33,7 +33,7 @@ class GitButton extends StatelessWidget {
                 if (text == true) const SizedBox(width: 16),
                 if (text == true)
                   const Text(
-                    'App Code',
+                    'Código do App',
                     style: TextStyle(color: Colors.white, fontSize: 18),
                   ),
               ],
