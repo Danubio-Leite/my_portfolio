@@ -1,5 +1,6 @@
 import 'package:awesome_icons/awesome_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ContactPage extends StatelessWidget {
   ContactPage({super.key});
@@ -134,6 +135,30 @@ class ContactPage extends StatelessWidget {
                           Icon(FontAwesomeIcons.whatsapp),
                           SizedBox(width: 16),
                           SelectableText('+55 88 98155-1948'),
+                        ],
+                      ),
+                      const SizedBox(height: 8),
+                      Row(
+                        children: [
+                          const Icon(Icons.person),
+                          const SizedBox(width: 16),
+                          GestureDetector(
+                            onTap: () async {
+                              const url =
+                                  'https://www.99freelas.com.br/user/JDanubio';
+                              if (await canLaunchUrl(Uri.parse(url))) {
+                                await launchUrl(Uri.parse(url));
+                              } else {
+                                throw 'Could not  launch $url';
+                              }
+                            },
+                            child: const Text(
+                              '99 Freelas',
+                              style: TextStyle(
+                                  color: Color.fromRGBO(69, 117, 116, 1),
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
                         ],
                       ),
                     ],
