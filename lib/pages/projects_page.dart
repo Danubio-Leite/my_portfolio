@@ -106,7 +106,7 @@ class _ProjectsPageState extends State<ProjectsPage> {
                                   if (await canLaunchUrl(Uri.parse(url))) {
                                     await launchUrl(Uri.parse(url));
                                   } else {
-                                    throw 'Could not launch $url';
+                                    throw 'Could not  launch $url';
                                   }
                                 },
                               ),
