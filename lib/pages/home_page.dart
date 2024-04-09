@@ -23,7 +23,7 @@ class HomePage extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           const Text(
-                            'Olei???',
+                            'Olá!',
                             style: TextStyle(
                                 fontSize: 26,
                                 fontWeight: FontWeight.bold,
@@ -55,8 +55,7 @@ class HomePage extends StatelessWidget {
                         ],
                       ),
                     ),
-                    Flexible(
-                        child: Image.asset('images/Calculadora_Screen_1.png')),
+                    Flexible(child: Image.asset('images/profile1.png')),
                   ],
                 ),
               ),
