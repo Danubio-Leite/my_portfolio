@@ -33,7 +33,7 @@ class AboutPage extends StatelessWidget {
                         SizedBox(height: 16),
                         Flexible(
                           child: AutoSizeText(
-                            'Sempre em busca de novos conhecimentos, comecei a estudar Flutter 2 anos atrás e com ele tenho desenvolvido aplicações multiplataforma responsivas, intuitivas e com design moderno. Atualmente, estou estou trabalhando em aplicativos próprios e tenho participado de projetos como freelancer. Se você tiver alguma dúvida ou gostaria de trabalhar comigo, sinta-se à vontade para me contatar.',
+                            'Sempre em busca de novos conhecimentos, comecei a estudar Flutter três anos atrás e com ele tenho desenvolvido aplicações multiplataforma responsivas, intuitivas e com design moderno. Atualmente, estou estou trabalhando em aplicativos próprios e tenho participado de projetos como freelancer. Se você tiver alguma dúvida ou gostaria de trabalhar comigo, sinta-se à vontade para me contatar.',
                             style: TextStyle(fontSize: 18),
                           ),
                         ),
