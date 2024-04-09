@@ -55,7 +55,8 @@ class HomePage extends StatelessWidget {
                         ],
                       ),
                     ),
-                    Flexible(child: Image.asset('images/profile1.png')),
+                    Flexible(
+                        child: Image.asset('images/Calculadora_Screen_1.png')),
                   ],
                 ),
               ),
