@@ -8,6 +8,7 @@ import 'components/pop_contact_list.dart';
 import 'pages/about_page.dart';
 import 'pages/contact_page.dart';
 import 'pages/home_page.dart';
+import 'pages/project_test.dart';
 import 'pages/projects_page.dart';
 
 void main() {
@@ -150,6 +151,11 @@ class MyApp extends StatelessWidget {
                           borderRadius: BorderRadius.circular(2),
                         ),
                         child: const HomePage()),
+                    Card(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(2),
+                        ),
+                        child: const ProjectsPage2()),
                     Card(
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(2),
