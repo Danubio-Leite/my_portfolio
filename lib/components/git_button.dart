@@ -29,7 +29,7 @@ class GitButton extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.asset('images/icons/git.png', width: 32),
+                Image.asset('images/git.png', width: 32),
                 if (text == true) const SizedBox(width: 16),
                 if (text == true)
                   const Text(

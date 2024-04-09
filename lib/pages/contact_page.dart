@@ -124,7 +124,7 @@ class ContactPage extends StatelessWidget {
                       const SizedBox(height: 32),
                       const Row(
                         children: [
-                          Icon(Icons.email_outlined),
+                          Icon(FontAwesomeIcons.envelope),
                           SizedBox(width: 16),
                           SelectableText('danubioalves@gmail.com'),
                         ],
@@ -140,7 +140,7 @@ class ContactPage extends StatelessWidget {
                       const SizedBox(height: 8),
                       Row(
                         children: [
-                          const Icon(Icons.person),
+                          const Icon(FontAwesomeIcons.user),
                           const SizedBox(width: 16),
                           GestureDetector(
                             onTap: () async {
