@@ -129,8 +129,8 @@ class _ProjectsPageState extends State<ProjectsPage> {
                                 child: LayoutBuilder(
                                   builder: (BuildContext context,
                                       BoxConstraints constraints) {
-                                    return Row(
-                                      // alignment: Alignment.center,
+                                    return Stack(
+                                      alignment: Alignment.center,
                                       children: [
                                         Image.asset(
                                           'images/Calculadora_Screen_$_imageIndex.png',
@@ -204,8 +204,7 @@ class _ProjectsPageState extends State<ProjectsPage> {
                                       alignment: Alignment.center,
                                       children: [
                                         Image.asset(
-                                          'images/Livros_Screen_1.png',
-                                          // 'images/Livros_Screen_$_imageIndex.png',
+                                          'images/Livros_Screen_$_imageIndex.png',
                                           width: constraints.maxWidth * 0.855,
                                           height: constraints.maxHeight * 0.855,
                                         ),
