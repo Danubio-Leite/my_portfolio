@@ -133,11 +133,12 @@ class _ProjectsPageState extends State<ProjectsPage> {
                                       alignment: Alignment.center,
                                       children: [
                                         Image.asset(
-                                          'images/screenshots/calculadora/Screen_$_imageIndex.png',
+                                          'assets/images/screenshots/calculadora/Screen_$_imageIndex.png',
                                           width: constraints.maxWidth * 0.855,
                                           height: constraints.maxHeight * 0.855,
                                         ),
-                                        Image.asset('images/pixel_3.png'),
+                                        Image.asset(
+                                            'assets/images/pixel_3.png'),
                                       ],
                                     );
                                   },
