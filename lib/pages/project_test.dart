@@ -42,10 +42,51 @@ class _ProjectsPage2State extends State<ProjectsPage2> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset(
-            'images/Calculadora_Screen_1.png',
-            width: 200,
-            height: 400,
+          Column(
+            children: [
+              Flexible(
+                child: LayoutBuilder(
+                  builder: (BuildContext context, BoxConstraints constraints) {
+                    return Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        Image.asset(
+                          'images/Evolucao_Screen_$_imageIndex.png',
+                          width: constraints.maxWidth * 0.855,
+                          height: constraints.maxHeight * 0.855,
+                        ),
+                        Image.asset('images/pixel_3.png'),
+                      ],
+                    );
+                  },
+                ),
+              ),
+              const SizedBox(height: 16),
+              const Text(
+                'Evolução Médica',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 8),
+              const Text(
+                'App para ajudar profissionais de saúde no acompanhamento de pacientes.',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 16),
+              ),
+              const SizedBox(height: 16),
+              GitButton(
+                text: true,
+                onPressed: () async {
+                  const url =
+                      'https://github.com/Danubio-Leite/evolucao_medica_2023';
+                  if (await canLaunchUrl(Uri.parse(url))) {
+                    await launchUrl(Uri.parse(url));
+                  } else {
+                    throw 'Could not  launch $url';
+                  }
+                },
+              ),
+            ],
           ),
           Flexible(
             child: LayoutBuilder(
@@ -98,18 +139,18 @@ class _ProjectsPage2State extends State<ProjectsPage2> {
                   style: TextStyle(fontSize: 16),
                 ),
                 const SizedBox(height: 16),
-                GitButton(
-                  text: true,
-                  onPressed: () async {
-                    const url =
-                        'https://github.com/Danubio-Leite/private_library';
-                    if (await canLaunchUrl(Uri.parse(url))) {
-                      await launchUrl(Uri.parse(url));
-                    } else {
-                      throw 'Could not launch $url';
-                    }
-                  },
-                ),
+                // GitButton(
+                //   text: true,
+                //   onPressed: () async {
+                //     const url =
+                //         'https://github.com/Danubio-Leite/private_library';
+                //     if (await canLaunchUrl(Uri.parse(url))) {
+                //       await launchUrl(Uri.parse(url));
+                //     } else {
+                //       throw 'Could not launch $url';
+                //     }
+                //   },
+                // ),
               ],
             ),
           ),
