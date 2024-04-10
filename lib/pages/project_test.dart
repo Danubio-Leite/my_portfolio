@@ -47,16 +47,22 @@ class _ProjectsPage2State extends State<ProjectsPage2> {
             width: 200,
             height: 400,
           ),
-          Stack(
-            alignment: Alignment.center,
-            children: [
-              Image.asset(
-                'images/Calculadora_Screen_$_imageIndex.png',
-                width: 200,
-                height: 400,
-              ),
-              Image.asset('images/pixel_3.png'),
-            ],
+          Flexible(
+            child: LayoutBuilder(
+              builder: (BuildContext context, BoxConstraints constraints) {
+                return Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    Image.asset(
+                      'images/Calculadora_Screen_$_imageIndex.png',
+                      width: constraints.maxWidth * 0.855,
+                      height: constraints.maxHeight * 0.855,
+                    ),
+                    Image.asset('images/pixel_3.png'),
+                  ],
+                );
+              },
+            ),
           ),
           Image.asset(
             'images/Evolucao_Screen_1.png',
