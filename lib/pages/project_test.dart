@@ -16,18 +16,18 @@ class ProjectsPage2 extends StatefulWidget {
 }
 
 class _ProjectsPage2State extends State<ProjectsPage2> {
-  int _imageIndex = 1;
-  late Timer _timer;
+  // int _imageIndex = 1;
+  // late Timer _timer;
 
-  @override
-  void initState() {
-    super.initState();
-    _timer = Timer.periodic(const Duration(milliseconds: 2500), (timer) {
-      setState(() {
-        _imageIndex = _imageIndex % 6 + 1;
-      });
-    });
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   _timer = Timer.periodic(const Duration(milliseconds: 2500), (timer) {
+  //     setState(() {
+  //       _imageIndex = _imageIndex % 6 + 1;
+  //     });
+  //   });
+  // }
 
   // @override
   // void dispose() {
@@ -79,7 +79,7 @@ class _ProjectsPage2State extends State<ProjectsPage2> {
                                 alignment: Alignment.center,
                                 children: [
                                   Image.asset(
-                                    'images/Evolucao_Screen_$_imageIndex.png',
+                                    'images/Evolucao_Screen_1.png',
                                     width: 200,
                                     height: 400,
                                   ),
@@ -120,21 +120,10 @@ class _ProjectsPage2State extends State<ProjectsPage2> {
                           child: Column(
                             children: [
                               Flexible(
-                                child: LayoutBuilder(
-                                  builder: (BuildContext context,
-                                      BoxConstraints constraints) {
-                                    return Stack(
-                                      alignment: Alignment.center,
-                                      children: [
-                                        Image.asset(
-                                          'images/Calculadora_Screen_$_imageIndex.png',
-                                          width: constraints.maxWidth * 0.855,
-                                          height: constraints.maxHeight * 0.855,
-                                        ),
-                                        Image.asset('images/pixel_3.png'),
-                                      ],
-                                    );
-                                  },
+                                child: Image.asset(
+                                  'images/Calculadora_Screen_1.png',
+                                  width: 200,
+                                  height: 400,
                                 ),
                               ),
                               const SizedBox(height: 16),
@@ -198,7 +187,7 @@ class _ProjectsPage2State extends State<ProjectsPage2> {
                                       alignment: Alignment.center,
                                       children: [
                                         Image.asset(
-                                          'images/Livros_Screen_$_imageIndex.png',
+                                          'images/Livros_Screen_1.png',
                                           width: constraints.maxWidth * 0.855,
                                           height: constraints.maxHeight * 0.855,
                                         ),
