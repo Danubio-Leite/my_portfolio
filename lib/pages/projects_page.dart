@@ -175,15 +175,15 @@ class _ProjectsPageState extends State<ProjectsPage> {
                                     // ),
                                     const SizedBox(width: 8),
                                     Flexible(child: PlayButton(
-                                      onPressed: () async {
-                                        const url =
-                                            'https://play.google.com/store/apps/details?id=br.com.danubioleite.calculadora_bancario';
-                                        if (await canLaunchUrl(
-                                            Uri.parse(url))) {
-                                          await launchUrl(Uri.parse(url));
-                                        } else {
-                                          throw 'Could not launch $url';
-                                        }
+                                      onPressed: () {
+                                        // const url =
+                                        //     'https://play.google.com/store/apps/details?id=br.com.danubioleite.calculadora_bancario';
+                                        // if (await canLaunchUrl(
+                                        //     Uri.parse(url))) {
+                                        //   await launchUrl(Uri.parse(url));
+                                        // } else {
+                                        //   throw 'Could not launch $url';
+                                        // }
                                       },
                                     )),
                                   ],

@@ -145,17 +145,18 @@ class MyApp extends StatelessWidget {
             children: [
               Expanded(
                 child: ListView(
+                  controller: controller,
                   children: [
                     Card(
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(2),
                         ),
                         child: const HomePage()),
-                    Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(2),
-                        ),
-                        child: const ProjectsPage2()),
+                    // Card(
+                    //     shape: RoundedRectangleBorder(
+                    //       borderRadius: BorderRadius.circular(2),
+                    //     ),
+                    //     child: const ProjectsPage2()),
                     Card(
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(2),
