@@ -40,6 +40,5 @@ class GitButton extends StatelessWidget {
             )),
       ),
     );
-    ;
   }
 }

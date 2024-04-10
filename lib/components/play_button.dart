@@ -40,6 +40,5 @@ class PlayButton extends StatelessWidget {
             )),
       ),
     );
-    ;
   }
 }
