@@ -23,7 +23,7 @@ class HomePage extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           const Text(
-                            'Olaa!',
+                            'Olá!',
                             style: TextStyle(
                                 fontSize: 26,
                                 fontWeight: FontWeight.bold,

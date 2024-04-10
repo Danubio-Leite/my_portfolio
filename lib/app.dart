@@ -137,97 +137,58 @@ class MyApp extends StatelessWidget {
             ],
           ),
         ),
-        body: WebSmoothScroll(
-          scrollOffset: 800,
-          curve: Curves.easeInOut,
-          controller: controller,
-          child: Row(
-            children: [
-              // Expanded(
-              //   child:
-
-              //   ListView(
-              //     controller: controller,
-              //     children: [
-              //       Card(
-              //           shape: RoundedRectangleBorder(
-              //             borderRadius: BorderRadius.circular(2),
-              //           ),
-              //           child: const HomePage()),
-              //       // Card(
-              //       //     shape: RoundedRectangleBorder(
-              //       //       borderRadius: BorderRadius.circular(2),
-              //       //     ),
-              //       //     child: const ProjectsPage2()),
-              //       Card(
-              //           shape: RoundedRectangleBorder(
-              //             borderRadius: BorderRadius.circular(2),
-              //           ),
-              //           child: const AboutPage()),
-              //       Card(
-              //           shape: RoundedRectangleBorder(
-              //             borderRadius: BorderRadius.circular(2),
-              //           ),
-              //           child: const ProjectsPage()),
-              //       Card(
-              //           shape: RoundedRectangleBorder(
-              //             borderRadius: BorderRadius.circular(2),
-              //           ),
-              //           child: ContactPage()),
-              //     ],
-              //   ),
-              // ),
-              Expanded(
-                child: PageView(
-                  scrollDirection: Axis.vertical,
-                  physics: const NeverScrollableScrollPhysics(),
-                  controller: controller,
-                  children: [
-                    Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(2),
-                        ),
-                        child: const HomePage()),
-                    Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(2),
-                        ),
-                        child: const AboutPage()),
-                    Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(2),
-                        ),
-                        child: const ProjectsPage()),
-                    Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(2),
-                        ),
-                        child: ContactPage()),
-                  ],
-                ),
-              ),
-              SmoothPageIndicator(
-                onDotClicked: (index) {
-                  controller.animateToPage(
-                    index,
-                    duration: const Duration(milliseconds: 500),
-                    curve: Curves.easeInOut,
-                  );
-                },
-                axisDirection: Axis.vertical,
+        body: Row(
+          children: [
+            Expanded(
+              child: PageView(
+                scrollDirection: Axis.vertical,
+                physics: const NeverScrollableScrollPhysics(),
                 controller: controller,
-                count: 4,
-                effect: const ExpandingDotsEffect(
-                  activeDotColor: Colors.white,
-                  dotColor: Colors.white,
-                  dotHeight: 16,
-                  dotWidth: 16,
-                  spacing: 8,
-                ),
+                children: [
+                  Card(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(2),
+                      ),
+                      child: const HomePage()),
+                  Card(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(2),
+                      ),
+                      child: const AboutPage()),
+                  Card(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(2),
+                      ),
+                      child: const ProjectsPage()),
+                  Card(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(2),
+                      ),
+                      child: ContactPage()),
+                ],
               ),
-              const SizedBox(width: 4),
-            ],
-          ),
+            ),
+            SmoothPageIndicator(
+              onDotClicked: (index) {
+                controller.animateToPage(
+                  index,
+                  duration: const Duration(milliseconds: 500),
+                  curve: Curves.easeInOut,
+                );
+              },
+              axisDirection: Axis.vertical,
+              controller: controller,
+              count: 4,
+              effect: const ExpandingDotsEffect(
+                activeDotColor: Colors.white,
+                dotColor: Colors.white,
+                dotHeight: 16,
+                dotWidth: 16,
+                spacing: 8,
+              ),
+            ),
+            const SizedBox(width: 4),
+          ],
         ),
       ),
     );
