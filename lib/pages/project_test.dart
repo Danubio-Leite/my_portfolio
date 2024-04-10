@@ -16,24 +16,24 @@ class ProjectsPage2 extends StatefulWidget {
 }
 
 class _ProjectsPage2State extends State<ProjectsPage2> {
-  // int _imageIndex = 1;
-  // late Timer _timer;
+  int _imageIndex = 1;
+  late Timer _timer;
 
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   _timer = Timer.periodic(const Duration(milliseconds: 2500), (timer) {
-  //     setState(() {
-  //       _imageIndex = _imageIndex % 6 + 1;
-  //     });
-  //   });
-  // }
+  @override
+  void initState() {
+    super.initState();
+    _timer = Timer.periodic(const Duration(milliseconds: 2500), (timer) {
+      setState(() {
+        _imageIndex = _imageIndex % 6 + 1;
+      });
+    });
+  }
 
-  // @override
-  // void dispose() {
-  //   _timer.cancel();
-  //   super.dispose();
-  // }
+  @override
+  void dispose() {
+    _timer.cancel();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,10 +47,16 @@ class _ProjectsPage2State extends State<ProjectsPage2> {
             width: 200,
             height: 400,
           ),
-          Image.asset(
-            'images/Livros_Screen_1.png',
-            width: 200,
-            height: 400,
+          Stack(
+            alignment: Alignment.center,
+            children: [
+              Image.asset(
+                'images/Calculadora_Screen_$_imageIndex.png',
+                width: 200,
+                height: 400,
+              ),
+              Image.asset('images/pixel_3.png'),
+            ],
           ),
           Image.asset(
             'images/Evolucao_Screen_1.png',
