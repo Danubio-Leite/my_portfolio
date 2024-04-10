@@ -17,6 +17,7 @@ dependencies:
   carousel_slider:
   popover: ^0.3.0
   awesome_icons: 
+  animated_snack_bar: ^0.4.0
 
 
   cupertino_icons: ^1.0.2

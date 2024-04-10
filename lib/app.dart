@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:popover/popover.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:web_smooth_scroll/web_smooth_scroll.dart';
@@ -7,6 +8,7 @@ import 'components/pop_contact_list.dart';
 import 'pages/about_page.dart';
 import 'pages/contact_page.dart';
 import 'pages/home_page.dart';
+import 'pages/project_test.dart';
 import 'pages/projects_page.dart';
 
 void main() {
@@ -142,16 +144,18 @@ class MyApp extends StatelessWidget {
           child: Row(
             children: [
               Expanded(
-                child: PageView(
-                  scrollDirection: Axis.vertical,
-                  physics: const NeverScrollableScrollPhysics(),
-                  controller: controller,
+                child: ListView(
                   children: [
                     Card(
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(2),
                         ),
                         child: const HomePage()),
+                    Card(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(2),
+                        ),
+                        child: const ProjectsPage2()),
                     Card(
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(2),
@@ -170,6 +174,35 @@ class MyApp extends StatelessWidget {
                   ],
                 ),
               ),
+              // Expanded(
+              //   child: PageView(
+              //     scrollDirection: Axis.vertical,
+              //     physics: const NeverScrollableScrollPhysics(),
+              //     controller: controller,
+              //     children: [
+              //       Card(
+              //           shape: RoundedRectangleBorder(
+              //             borderRadius: BorderRadius.circular(2),
+              //           ),
+              //           child: const HomePage()),
+              //       Card(
+              //           shape: RoundedRectangleBorder(
+              //             borderRadius: BorderRadius.circular(2),
+              //           ),
+              //           child: const AboutPage()),
+              //       Card(
+              //           shape: RoundedRectangleBorder(
+              //             borderRadius: BorderRadius.circular(2),
+              //           ),
+              //           child: const ProjectsPage()),
+              //       Card(
+              //           shape: RoundedRectangleBorder(
+              //             borderRadius: BorderRadius.circular(2),
+              //           ),
+              //           child: ContactPage()),
+              //     ],
+              //   ),
+              // ),
               SmoothPageIndicator(
                 onDotClicked: (index) {
                   controller.animateToPage(

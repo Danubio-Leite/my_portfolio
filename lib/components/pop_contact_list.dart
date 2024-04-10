@@ -36,7 +36,7 @@ class ListItems extends StatelessWidget {
                     subtitle: SelectableText('+55 88 98155-1948'),
                   ),
                   ListTile(
-                    leading: Icon(Icons.email),
+                    leading: Icon(FontAwesomeIcons.envelope),
                     title: Text('E-mail'),
                     subtitle: SelectableText('danubioalves@gmail.com'),
                   ),
@@ -52,7 +52,7 @@ class ListItems extends StatelessWidget {
                   Navigator.pop(context);
                 },
                 child: const ListTile(
-                  leading: Icon(Icons.message_outlined),
+                  leading: Icon(FontAwesomeIcons.commentDots),
                   title: Text(
                     'Enviar Mensagem',
                     style: TextStyle(

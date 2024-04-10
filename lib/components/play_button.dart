@@ -22,7 +22,7 @@ class PlayButton extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.asset('images/icons/play.png', width: 32),
+                Image.asset('images/play.png', width: 32),
                 const SizedBox(width: 24),
                 const Column(
                   children: [

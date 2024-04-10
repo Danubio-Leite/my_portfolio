@@ -1,3 +1,4 @@
+import 'package:animated_snack_bar/animated_snack_bar.dart';
 import 'package:awesome_icons/awesome_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -104,7 +105,14 @@ class ContactPage extends StatelessWidget {
                       ElevatedButton(
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {
-                            print('Mensagem enviada com sucesso!');
+                            AnimatedSnackBar.material(
+                              'Sua mensagem foi enviada com sucesso, entrarei em contato em breve!',
+                              type: AnimatedSnackBarType.success,
+                              mobileSnackBarPosition:
+                                  MobileSnackBarPosition.bottom,
+                              desktopSnackBarPosition:
+                                  DesktopSnackBarPosition.bottomCenter,
+                            ).show(context);
                           }
                         },
                         style: ElevatedButton.styleFrom(
@@ -124,7 +132,7 @@ class ContactPage extends StatelessWidget {
                       const SizedBox(height: 32),
                       const Row(
                         children: [
-                          Icon(Icons.email_outlined),
+                          Icon(FontAwesomeIcons.envelope),
                           SizedBox(width: 16),
                           SelectableText('danubioalves@gmail.com'),
                         ],
@@ -140,7 +148,7 @@ class ContactPage extends StatelessWidget {
                       const SizedBox(height: 8),
                       Row(
                         children: [
-                          const Icon(Icons.person),
+                          const Icon(FontAwesomeIcons.user),
                           const SizedBox(width: 16),
                           GestureDetector(
                             onTap: () async {
