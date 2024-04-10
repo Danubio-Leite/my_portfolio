@@ -106,18 +106,18 @@ class _ProjectsPageState extends State<ProjectsPage> {
                                 style: TextStyle(fontSize: 16),
                               ),
                               const SizedBox(height: 16),
-                              // GitButton(
-                              //   text: true,
-                              //   onPressed: () async {
-                              //     const url =
-                              //         'https://github.com/Danubio-Leite/evolucao_medica_2023';
-                              //     if (await canLaunchUrl(Uri.parse(url))) {
-                              //       await launchUrl(Uri.parse(url));
-                              //     } else {
-                              //       throw 'Could not  launch $url';
-                              //     }
-                              //   },
-                              // ),
+                              GitButton(
+                                text: true,
+                                onPressed: () async {
+                                  const url =
+                                      'https://github.com/Danubio-Leite/evolucao_medica_2023';
+                                  if (await canLaunchUrl(Uri.parse(url))) {
+                                    await launchUrl(Uri.parse(url));
+                                  } else {
+                                    throw 'Could not  launch $url';
+                                  }
+                                },
+                              ),
                             ],
                           ),
                         ),
@@ -230,18 +230,18 @@ class _ProjectsPageState extends State<ProjectsPage> {
                                 style: TextStyle(fontSize: 16),
                               ),
                               const SizedBox(height: 16),
-                              // GitButton(
-                              //   text: true,
-                              //   onPressed: () async {
-                              //     const url =
-                              //         'https://github.com/Danubio-Leite/private_library';
-                              //     if (await canLaunchUrl(Uri.parse(url))) {
-                              //       await launchUrl(Uri.parse(url));
-                              //     } else {
-                              //       throw 'Could not launch $url';
-                              //     }
-                              //   },
-                              // ),
+                              GitButton(
+                                text: true,
+                                onPressed: () async {
+                                  const url =
+                                      'https://github.com/Danubio-Leite/private_library';
+                                  if (await canLaunchUrl(Uri.parse(url))) {
+                                    await launchUrl(Uri.parse(url));
+                                  } else {
+                                    throw 'Could not launch $url';
+                                  }
+                                },
+                              ),
                             ],
                           ),
                         ),

@@ -143,42 +143,10 @@ class MyApp extends StatelessWidget {
           controller: controller,
           child: Row(
             children: [
-              Expanded(
-                child: ListView(
-                  controller: controller,
-                  children: [
-                    Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(2),
-                        ),
-                        child: const HomePage()),
-                    // Card(
-                    //     shape: RoundedRectangleBorder(
-                    //       borderRadius: BorderRadius.circular(2),
-                    //     ),
-                    //     child: const ProjectsPage2()),
-                    Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(2),
-                        ),
-                        child: const AboutPage()),
-                    Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(2),
-                        ),
-                        child: const ProjectsPage()),
-                    Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(2),
-                        ),
-                        child: ContactPage()),
-                  ],
-                ),
-              ),
               // Expanded(
-              //   child: PageView(
-              //     scrollDirection: Axis.vertical,
-              //     physics: const NeverScrollableScrollPhysics(),
+              //   child:
+
+              //   ListView(
               //     controller: controller,
               //     children: [
               //       Card(
@@ -186,6 +154,11 @@ class MyApp extends StatelessWidget {
               //             borderRadius: BorderRadius.circular(2),
               //           ),
               //           child: const HomePage()),
+              //       // Card(
+              //       //     shape: RoundedRectangleBorder(
+              //       //       borderRadius: BorderRadius.circular(2),
+              //       //     ),
+              //       //     child: const ProjectsPage2()),
               //       Card(
               //           shape: RoundedRectangleBorder(
               //             borderRadius: BorderRadius.circular(2),
@@ -204,6 +177,35 @@ class MyApp extends StatelessWidget {
               //     ],
               //   ),
               // ),
+              Expanded(
+                child: PageView(
+                  scrollDirection: Axis.vertical,
+                  physics: const NeverScrollableScrollPhysics(),
+                  controller: controller,
+                  children: [
+                    Card(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(2),
+                        ),
+                        child: const HomePage()),
+                    Card(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(2),
+                        ),
+                        child: const AboutPage()),
+                    Card(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(2),
+                        ),
+                        child: const ProjectsPage()),
+                    Card(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(2),
+                        ),
+                        child: ContactPage()),
+                  ],
+                ),
+              ),
               SmoothPageIndicator(
                 onDotClicked: (index) {
                   controller.animateToPage(
