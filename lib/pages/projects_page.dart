@@ -160,82 +160,34 @@ class _ProjectsPageState extends State<ProjectsPage> {
                                 width: 300,
                                 child: Row(
                                   children: [
-                                    // GitButton(
-                                    //   text: false,
-                                    //   onPressed: () async {
-                                    //     const url =
-                                    //         'https://github.com/Danubio-Leite/calculadora_bancario';
-                                    //     if (await canLaunchUrl(
-                                    //         Uri.parse(url))) {
-                                    //       await launchUrl(Uri.parse(url));
-                                    //     } else {
-                                    //       throw 'Could not launch $url';
-                                    //     }
-                                    //   },
-                                    // ),
-                                    const SizedBox(width: 8),
-                                    SizedBox(
-                                      height: 64,
-                                      width: 300,
-                                      child: ElevatedButton(
-                                          onPressed: () async {
-                                            const url =
-                                                'https://play.google.com/store/apps/details?id=br.com.danubioleite.calculadora_bancario';
-                                            if (await canLaunchUrl(
-                                                Uri.parse(url))) {
-                                              await launchUrl(Uri.parse(url));
-                                            } else {
-                                              throw 'Could not launch $url';
-                                            }
-                                          },
-                                          style: ElevatedButton.styleFrom(
-                                            backgroundColor: Colors.black,
-                                            padding: const EdgeInsets.symmetric(
-                                                vertical: 16),
-                                            shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(8),
-                                            ),
-                                          ),
-                                          child: Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: [
-                                              Image.asset('images/play.png',
-                                                  width: 32),
-                                              const SizedBox(width: 24),
-                                              const Column(
-                                                children: [
-                                                  Text(
-                                                    'Android App on',
-                                                    style: TextStyle(
-                                                        color: Colors.white),
-                                                  ),
-                                                  Text(
-                                                    'Google Play',
-                                                    style: TextStyle(
-                                                        color: Colors.white,
-                                                        fontSize: 18),
-                                                  ),
-                                                ],
-                                              ),
-                                            ],
-                                          )),
+                                    GitButton(
+                                      text: false,
+                                      onPressed: () async {
+                                        const url =
+                                            'https://github.com/Danubio-Leite/calculadora_bancario';
+                                        if (await canLaunchUrl(
+                                            Uri.parse(url))) {
+                                          await launchUrl(Uri.parse(url));
+                                        } else {
+                                          throw 'Could not launch $url';
+                                        }
+                                      },
                                     ),
-                                    // Flexible(
-                                    //   child: PlayButton(
-                                    //     onPressed: () async {
-                                    //       const url =
-                                    //           'https://play.google.com/store/apps/details?id=br.com.danubioleite.calculadora_bancario';
-                                    //       if (await canLaunchUrl(
-                                    //           Uri.parse(url))) {
-                                    //         await launchUrl(Uri.parse(url));
-                                    //       } else {
-                                    //         throw 'Could not launch $url';
-                                    //       }
-                                    //     },
-                                    //   ),
-                                    // ),
+                                    const SizedBox(width: 8),
+                                    Flexible(
+                                      child: PlayButton(
+                                        onPressed: () async {
+                                          const url =
+                                              'https://play.google.com/store/apps/details?id=br.com.danubioleite.calculadora_bancario';
+                                          if (await canLaunchUrl(
+                                              Uri.parse(url))) {
+                                            await launchUrl(Uri.parse(url));
+                                          } else {
+                                            throw 'Could not launch $url';
+                                          }
+                                        },
+                                      ),
+                                    ),
                                   ],
                                 ),
                               ),
