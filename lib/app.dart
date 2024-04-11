@@ -24,6 +24,9 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       title: 'Danúbio Leite',
+      theme: ThemeData(
+        fontFamily: 'Lekton',
+      ),
       debugShowCheckedModeBanner: false,
       home: Scaffold(
           floatingActionButton: Builder(

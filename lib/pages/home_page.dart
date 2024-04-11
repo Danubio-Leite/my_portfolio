@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -30,6 +31,7 @@ class HomePage extends StatelessWidget {
                   Text(
                     'Danúbio Leite',
                     style: TextStyle(
+                        fontFamily: 'Miriam Libre',
                         fontSize: width / 45,
                         fontWeight: FontWeight.bold,
                         color: Color.fromRGBO(69, 117, 116, 1)),
@@ -52,6 +54,9 @@ class HomePage extends StatelessWidget {
                         ),
                         children: const <TextSpan>[
                           TextSpan(
+                            style: TextStyle(
+                              fontFamily: 'Lekton',
+                            ),
                             text:
                                 'Há três anos venho desenvolvendo aplicações multiplataforma responsivas, intuitivas e com design moderno. Atualmente, trabalho na criação de aplicativos próprios e participo de projetos como freelancer. Precisa de ajuda para tirar sua ideia do papel? ',
                           ),
