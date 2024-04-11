@@ -14,7 +14,7 @@ class GitButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 64,
+      height: 54,
       width: text ? 250 : 64,
       child: ElevatedButton(
           onPressed: onPressed,

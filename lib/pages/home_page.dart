@@ -1,67 +1,69 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    double _width = MediaQuery.of(context).size.width;
     return SizedBox(
       height: MediaQuery.of(context).size.height,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Expanded(
-            child: Center(
-              child: Container(
-                width: MediaQuery.of(context).size.width / 2,
-                padding: const EdgeInsets.all(16),
-                child: Row(
-                  children: [
-                    Flexible(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text(
-                            'Olá!',
-                            style: TextStyle(
-                                fontSize: 26,
-                                fontWeight: FontWeight.bold,
-                                color: Color.fromRGBO(69, 117, 116, 1)),
-                          ),
-                          const SizedBox(height: 16),
-                          Flexible(
-                            child: RichText(
-                              text: const TextSpan(
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  color: Colors.black,
-                                ),
-                                children: <TextSpan>[
-                                  TextSpan(
-                                      text:
-                                          'Me chamo Danúbio. Sou apaixonado por tecnologia e '),
-                                  TextSpan(
-                                      text: 'Desenvolvedor Mobile',
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          color:
-                                              Color.fromRGBO(69, 117, 116, 1))),
-                                  TextSpan(text: ' especializado em Flutter.'),
-                                ],
-                              ),
-                            ),
-                          ),
+      child: Container(
+        width: _width / 4,
+        padding: EdgeInsets.only(
+            left: _width / 4,
+            right: _width / 4,
+            top: _width / 22,
+            bottom: _width / 20),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(
+              'images/profile1.png',
+              width: _width / 4,
+            ),
+            Flexible(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    'Danúbio Leite',
+                    style: TextStyle(
+                        fontSize: _width / 45,
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromRGBO(69, 117, 116, 1)),
+                  ),
+                  Text(
+                    'Desenvolvedor Mobile',
+                    style: TextStyle(
+                        fontSize: _width / 55,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black87),
+                  ),
+                  const SizedBox(height: 16),
+                  Flexible(
+                    child: RichText(
+                      text: TextSpan(
+                        style: TextStyle(
+                          fontSize: _width / 85,
+                          color: Colors.black,
+                        ),
+                        children: const <TextSpan>[
+                          TextSpan(
+                              text:
+                                  'Sempre em busca de novos conhecimentos, comecei a estudar Flutter três anos atrás e com ele tenho desenvolvido aplicações multiplataforma responsivas, intuitivas e com design moderno. Atualmente, estou estou trabalhando em aplicativos próprios e tenho participado de projetos como freelancer. Se você tiver alguma dúvida ou gostaria de trabalhar comigo, sinta-se à vontade para me contatar.'),
                         ],
                       ),
                     ),
-                    Flexible(child: Image.asset('images/profile1.png')),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

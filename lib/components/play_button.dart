@@ -7,7 +7,7 @@ class PlayButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 64,
+      height: 54,
       width: 300,
       child: ElevatedButton(
           onPressed: onPressed,
@@ -27,11 +27,11 @@ class PlayButton extends StatelessWidget {
                 children: [
                   Text(
                     'Android App on',
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: Colors.white, fontSize: 11),
                   ),
                   Text(
                     'Google Play',
-                    style: TextStyle(color: Colors.white, fontSize: 18),
+                    style: TextStyle(color: Colors.white, fontSize: 15),
                   ),
                 ],
               ),
