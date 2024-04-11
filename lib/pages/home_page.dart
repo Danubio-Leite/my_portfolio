@@ -5,63 +5,69 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
     return SizedBox(
       height: MediaQuery.of(context).size.height,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Expanded(
-            child: Center(
-              child: Container(
-                width: MediaQuery.of(context).size.width / 2,
-                padding: const EdgeInsets.all(16),
-                child: Row(
-                  children: [
-                    Flexible(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text(
-                            'Olá!?',
-                            style: TextStyle(
-                                fontSize: 26,
-                                fontWeight: FontWeight.bold,
-                                color: Color.fromRGBO(69, 117, 116, 1)),
+      child: Container(
+        width: width / 4,
+        padding: EdgeInsets.only(
+            left: width / 4,
+            right: width / 4,
+            top: width / 22,
+            bottom: width / 20),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(
+              'images/profile1.png',
+              width: width / 4,
+            ),
+            Flexible(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    'Danúbio Leite',
+                    style: TextStyle(
+                        fontSize: width / 45,
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromRGBO(69, 117, 116, 1)),
+                  ),
+                  Text(
+                    'Desenvolvedor Mobile',
+                    style: TextStyle(
+                        fontSize: width / 55,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black87),
+                  ),
+                  const SizedBox(height: 16),
+                  Flexible(
+                    child: RichText(
+                      textAlign: TextAlign.justify,
+                      text: TextSpan(
+                        style: TextStyle(
+                          fontSize: width / 85,
+                          color: Colors.black,
+                        ),
+                        children: const <TextSpan>[
+                          TextSpan(
+                            text:
+                                'Há três anos venho desenvolvendo aplicações multiplataforma responsivas, intuitivas e com design moderno. Atualmente, trabalho na criação de aplicativos próprios e participo de projetos como freelancer. Precisa de ajuda para tirar sua ideia do papel? ',
                           ),
-                          const SizedBox(height: 16),
-                          Flexible(
-                            child: RichText(
-                              text: const TextSpan(
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  color: Colors.black,
-                                ),
-                                children: <TextSpan>[
-                                  TextSpan(
-                                      text:
-                                          'Me chamo Danúbio. Sou apaixonado por tecnologia e '),
-                                  TextSpan(
-                                      text: 'Desenvolvedor Mobile',
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          color:
-                                              Color.fromRGBO(69, 117, 116, 1))),
-                                  TextSpan(text: ' especializado em Flutter.'),
-                                ],
-                              ),
-                            ),
+                          TextSpan(
+                            text: 'Fale comigo!',
+                            style: TextStyle(fontWeight: FontWeight.bold),
                           ),
                         ],
                       ),
                     ),
-                    Flexible(child: Image.asset('images/profile1.png')),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
