@@ -1,12 +1,9 @@
 import 'dart:async';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:my_portfolio/components/git_button.dart';
 import 'package:url_launcher/url_launcher.dart';
-
-import '../components/play_button.dart';
 
 class ProjectsPage2 extends StatefulWidget {
   const ProjectsPage2({super.key});

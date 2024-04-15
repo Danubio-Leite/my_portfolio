@@ -18,6 +18,8 @@ dependencies:
   popover: ^0.3.0
   awesome_icons: 
   animated_snack_bar: ^0.4.0
+  hovering: ^1.0.4
+
 
 
   cupertino_icons: ^1.0.2

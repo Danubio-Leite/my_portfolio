@@ -1,11 +1,12 @@
 import 'package:awesome_icons/awesome_icons.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class ListItems extends StatelessWidget {
-  final PageController controller;
-  const ListItems({Key? key, required this.controller}) : super(key: key);
+  final ValueChanged<int> onMenuClick;
+  final ScrollController controller;
+  const ListItems(
+      {Key? key, required this.controller, required this.onMenuClick})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -43,14 +44,15 @@ class ListItems extends StatelessWidget {
                 ],
               ),
               GestureDetector(
-                onTap: () {
-                  controller.animateToPage(
-                    3,
-                    duration: const Duration(milliseconds: 500),
-                    curve: Curves.easeInOut,
-                  );
-                  Navigator.pop(context);
-                },
+                onTap: () => onMenuClick(3),
+                // onTap: () {
+                //   controller.animateToPage(
+                //     3,
+                //     duration: const Duration(milliseconds: 500),
+                //     curve: Curves.easeInOut,
+                //   );
+                //   Navigator.pop(context);
+                // },
                 child: const ListTile(
                   leading: Icon(FontAwesomeIcons.commentDots),
                   title: Text(
