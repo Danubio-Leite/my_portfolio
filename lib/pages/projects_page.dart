@@ -1,15 +1,13 @@
 import 'dart:async';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:my_portfolio/components/git_button.dart';
 import 'package:url_launcher/url_launcher.dart';
-
 import '../components/play_button.dart';
 
 class ProjectsPage extends StatefulWidget {
-  const ProjectsPage({super.key});
+  const ProjectsPage({
+    super.key,
+  });
 
   @override
   State<ProjectsPage> createState() => _ProjectsPageState();
@@ -37,10 +35,12 @@ class _ProjectsPageState extends State<ProjectsPage> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: MediaQuery.of(context).size.height,
-      child: Padding(
-        padding: const EdgeInsets.all(32.0),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      child: Container(
+        color: Colors.white,
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [

@@ -1,23 +1,33 @@
 import 'package:animated_snack_bar/animated_snack_bar.dart';
 import 'package:awesome_icons/awesome_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:hovering/hovering.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class ContactPage extends StatelessWidget {
-  ContactPage({super.key});
+class ContactPage extends StatefulWidget {
+  const ContactPage({super.key});
+
+  @override
+  State<ContactPage> createState() => _ContactPageState();
+}
+
+class _ContactPageState extends State<ContactPage> {
+  bool isHover = false;
   final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: MediaQuery.of(context).size.height,
-      child: Form(
-        key: _formKey,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Expanded(
-              child: Center(
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      child: Container(
+        color: Colors.white,
+        height: MediaQuery.of(context).size.height,
+        child: Form(
+          key: _formKey,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Center(
                 child: Container(
                   width: MediaQuery.of(context).size.width / 2,
                   padding: const EdgeInsets.all(16),
@@ -148,9 +158,63 @@ class ContactPage extends StatelessWidget {
                       const SizedBox(height: 8),
                       Row(
                         children: [
+                          const Icon(FontAwesomeIcons.linkedin),
+                          const SizedBox(width: 16),
+                          InkWell(
+                            child: HoverWidget(
+                              hoverChild: const Text(
+                                'LinkedIn',
+                                style: TextStyle(
+                                  fontSize: 15,
+                                  color: Colors.blue,
+                                ),
+                              ),
+                              onHover: (_) {
+                                setState(() {
+                                  isHover = true;
+                                });
+                              },
+                              child: const Text('LinkedIn',
+                                  style: TextStyle(
+                                      color: Color.fromRGBO(69, 117, 116, 1),
+                                      fontWeight: FontWeight.bold)),
+                            ),
+                            onTap: () async {
+                              const url =
+                                  'https://www.linkedin.com/in/danubio-leite/';
+                              if (await canLaunchUrl(Uri.parse(url))) {
+                                await launchUrl(Uri.parse(url));
+                              } else {
+                                throw 'Could not  launch $url';
+                              }
+                            },
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 8),
+                      Row(
+                        children: [
                           const Icon(FontAwesomeIcons.user),
                           const SizedBox(width: 16),
-                          GestureDetector(
+                          InkWell(
+                            child: HoverWidget(
+                              hoverChild: const Text(
+                                '99 Freelas',
+                                style: TextStyle(
+                                  fontSize: 15,
+                                  color: Colors.blue,
+                                ),
+                              ),
+                              onHover: (_) {
+                                setState(() {
+                                  isHover = true;
+                                });
+                              },
+                              child: const Text('99 Freelas',
+                                  style: TextStyle(
+                                      color: Color.fromRGBO(69, 117, 116, 1),
+                                      fontWeight: FontWeight.bold)),
+                            ),
                             onTap: () async {
                               const url =
                                   'https://www.99freelas.com.br/user/JDanubio';
@@ -160,12 +224,6 @@ class ContactPage extends StatelessWidget {
                                 throw 'Could not  launch $url';
                               }
                             },
-                            child: const Text(
-                              '99 Freelas',
-                              style: TextStyle(
-                                  color: Color.fromRGBO(69, 117, 116, 1),
-                                  fontWeight: FontWeight.bold),
-                            ),
                           ),
                         ],
                       ),
@@ -173,8 +231,8 @@ class ContactPage extends StatelessWidget {
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
