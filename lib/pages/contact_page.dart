@@ -18,14 +18,20 @@ class _ContactPageState extends State<ContactPage> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      padding: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 16.0),
       child: Container(
-        color: Colors.white,
+        decoration: const BoxDecoration(
+          borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(4.0),
+            bottomRight: Radius.circular(4.0),
+          ),
+          color: Colors.white,
+        ),
         height: MediaQuery.of(context).size.height,
         child: Form(
           key: _formKey,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Center(
                 child: Container(
@@ -37,7 +43,7 @@ class _ContactPageState extends State<ContactPage> {
                       const Column(
                         children: [
                           Text(
-                            'Vamos conversar sobre seu projeto?',
+                            'Vamos conversar sobre sua ideia?',
                             style: TextStyle(
                               fontSize: 26,
                               fontWeight: FontWeight.bold,
@@ -49,7 +55,8 @@ class _ContactPageState extends State<ContactPage> {
                           ),
                           Text(
                             'Entre em contato!',
-                            style: TextStyle(fontSize: 16),
+                            style: TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.bold),
                           ),
                         ],
                       ),
@@ -166,7 +173,7 @@ class _ContactPageState extends State<ContactPage> {
                                 'LinkedIn',
                                 style: TextStyle(
                                   fontSize: 15,
-                                  color: Colors.blue,
+                                  color: Color.fromARGB(255, 139, 209, 200),
                                 ),
                               ),
                               onHover: (_) {
@@ -202,7 +209,7 @@ class _ContactPageState extends State<ContactPage> {
                                 '99 Freelas',
                                 style: TextStyle(
                                   fontSize: 15,
-                                  color: Colors.blue,
+                                  color: Color.fromARGB(255, 139, 209, 200),
                                 ),
                               ),
                               onHover: (_) {

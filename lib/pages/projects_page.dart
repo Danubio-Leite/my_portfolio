@@ -48,7 +48,7 @@ class _ProjectsPageState extends State<ProjectsPage> {
               child: Container(
                 width: MediaQuery.of(context).size.width - 100,
                 padding:
-                    const EdgeInsets.symmetric(vertical: 32, horizontal: 64),
+                    const EdgeInsets.symmetric(vertical: 64, horizontal: 128),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [

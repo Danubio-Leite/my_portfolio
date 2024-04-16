@@ -1,7 +1,9 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  final ValueChanged<int> onMenuClick;
+  const HomePage({super.key, required this.onMenuClick});
 
   @override
   Widget build(BuildContext context) {
@@ -9,7 +11,14 @@ class HomePage extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: Container(
-        color: Colors.white,
+        decoration: const BoxDecoration(
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(4.0),
+            topRight: Radius.circular(4.0),
+          ),
+          color: Colors.white,
+        ),
+        // color: Colors.white,
         height: MediaQuery.of(context).size.height,
         child: Container(
           width: width,
@@ -54,8 +63,8 @@ class HomePage extends StatelessWidget {
                             fontSize: width / 85,
                             color: Colors.black,
                           ),
-                          children: const <TextSpan>[
-                            TextSpan(
+                          children: <TextSpan>[
+                            const TextSpan(
                               style: TextStyle(
                                 fontFamily: 'Lekton',
                               ),
@@ -63,8 +72,13 @@ class HomePage extends StatelessWidget {
                                   'Há três anos venho desenvolvendo aplicações multiplataforma responsivas, intuitivas e com design moderno. Atualmente, trabalho na criação de aplicativos próprios e participo de projetos como freelancer. Precisa de ajuda para tirar sua ideia do papel? ',
                             ),
                             TextSpan(
+                              recognizer: TapGestureRecognizer()
+                                ..onTap = () {
+                                  onMenuClick(2);
+                                },
                               text: 'Fale comigo!',
-                              style: TextStyle(fontWeight: FontWeight.bold),
+                              style:
+                                  const TextStyle(fontWeight: FontWeight.bold),
                             ),
                           ],
                         ),

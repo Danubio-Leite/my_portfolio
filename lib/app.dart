@@ -40,8 +40,12 @@ class _MyAppState extends State<MyApp> {
             builder: (context) => Padding(
               padding: const EdgeInsets.only(
                 right: 12.0,
+                bottom: 6.0,
               ),
               child: FloatingActionButton(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
                 onPressed: () {
                   showPopover(
                     context: context,
@@ -77,6 +81,7 @@ class _MyAppState extends State<MyApp> {
             child: Column(
               children: [
                 HomePage(
+                  onMenuClick: _onMenuClick,
                   key: keySecao1,
                 ),
                 ProjectsPage(
@@ -91,57 +96,27 @@ class _MyAppState extends State<MyApp> {
     );
   }
 
-  _onMenuClick(int value) {
-    final RenderBox? renderBox;
-
-    switch (value) {
+  void _onMenuClick(int index) {
+    Future<void> future = Future.value();
+    switch (index) {
+      case 0:
+        future = Scrollable.ensureVisible(keySecao1.currentContext!,
+            duration: const Duration(milliseconds: 600), curve: Curves.linear);
+        break;
       case 1:
-        renderBox = keySecao1.currentContext?.findRenderObject() as RenderBox?;
+        future = Scrollable.ensureVisible(keySecao2.currentContext!,
+            duration: const Duration(milliseconds: 600), curve: Curves.linear);
         break;
       case 2:
-        renderBox = keySecao2.currentContext?.findRenderObject() as RenderBox?;
+        future = Scrollable.ensureVisible(keySecao3.currentContext!,
+            duration: const Duration(milliseconds: 600), curve: Curves.linear);
         break;
-      case 3:
-        renderBox = keySecao3.currentContext?.findRenderObject() as RenderBox?;
-        break;
-      default:
-        throw Exception();
     }
 
-    if (renderBox != null) {
-      final offset = renderBox.localToGlobal(Offset.zero);
-      scrollController.animateTo(
-        offset.dy,
-        duration: const Duration(milliseconds: 500),
-        curve: Curves.easeInOut,
-      );
-    } else {
-      print('RenderBox is null. The widget may not have been rendered yet.');
-    }
+    future.then((_) {
+      final position = scrollController.position.pixels + 40;
+      scrollController.animateTo(position,
+          duration: const Duration(milliseconds: 600), curve: Curves.linear);
+    });
   }
-
-  // _onMenuClick(int value) {
-  //   final RenderBox renderBox;
-
-  //   switch (value) {
-  //     case 1:
-  //       renderBox = keySecao1.currentContext!.findRenderObject() as RenderBox;
-
-  //       break;
-  //     case 2:
-  //       renderBox = keySecao2.currentContext!.findRenderObject() as RenderBox;
-  //       break;
-  //     case 3:
-  //       renderBox = keySecao3.currentContext!.findRenderObject() as RenderBox;
-  //       break;
-  //     default:
-  //       throw Exception();
-  //   }
-  //   final offset = renderBox.localToGlobal(Offset.zero);
-  //   scrollController.animateTo(
-  //     offset.dy,
-  //     duration: const Duration(milliseconds: 500),
-  //     curve: Curves.easeInOut,
-  //   );
-  // }
 }
