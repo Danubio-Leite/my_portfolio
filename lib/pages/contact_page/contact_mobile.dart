@@ -4,21 +4,21 @@ import 'package:flutter/material.dart';
 import 'package:hovering/hovering.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class ContactPage extends StatefulWidget {
-  const ContactPage({super.key});
+class ContactMobilePage extends StatefulWidget {
+  const ContactMobilePage({super.key});
 
   @override
-  State<ContactPage> createState() => _ContactPageState();
+  State<ContactMobilePage> createState() => _ContactMobilePageState();
 }
 
-class _ContactPageState extends State<ContactPage> {
+class _ContactMobilePageState extends State<ContactMobilePage> {
   bool isHover = false;
   final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 16.0),
+      padding: const EdgeInsets.only(left: 8.0, right: 8.0, bottom: 8.0),
       child: Container(
         decoration: const BoxDecoration(
           borderRadius: BorderRadius.only(
@@ -39,16 +39,16 @@ class _ContactPageState extends State<ContactPage> {
               ]),
           // color: Colors.white,
         ),
-        height: MediaQuery.of(context).size.height,
+        height: MediaQuery.of(context).size.height - 68,
         child: Form(
           key: _formKey,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Center(
                 child: Container(
-                  width: MediaQuery.of(context).size.width / 2,
-                  padding: const EdgeInsets.all(16),
+                  width: MediaQuery.of(context).size.width,
+                  padding: const EdgeInsets.all(36),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -57,18 +57,18 @@ class _ContactPageState extends State<ContactPage> {
                           Text(
                             'Vamos conversar sobre sua ideia?',
                             style: TextStyle(
-                              fontSize: 26,
+                              fontSize: 18,
                               fontWeight: FontWeight.bold,
                               color: Color.fromRGBO(69, 117, 116, 1),
                             ),
                           ),
                           SizedBox(
-                            height: 32,
+                            height: 16,
                           ),
                           Text(
                             'Entre em contato!',
                             style: TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.bold),
+                                fontSize: 14, fontWeight: FontWeight.bold),
                           ),
                         ],
                       ),
@@ -90,7 +90,7 @@ class _ContactPageState extends State<ContactPage> {
                           ),
                         ),
                       ),
-                      const SizedBox(height: 16),
+                      const SizedBox(height: 12),
                       TextFormField(
                         validator: (value) {
                           if (value == null || value.isEmpty) {
@@ -110,7 +110,7 @@ class _ContactPageState extends State<ContactPage> {
                           ),
                         ),
                       ),
-                      const SizedBox(height: 16),
+                      const SizedBox(height: 12),
                       TextFormField(
                         validator: (value) {
                           if (value == null || value.isEmpty) {
@@ -128,9 +128,9 @@ class _ContactPageState extends State<ContactPage> {
                             borderSide: BorderSide(color: Colors.black),
                           ),
                         ),
-                        maxLines: 4,
+                        maxLines: 3,
                       ),
-                      const SizedBox(height: 32),
+                      const SizedBox(height: 22),
                       ElevatedButton(
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {
@@ -158,127 +158,133 @@ class _ContactPageState extends State<ContactPage> {
                           style: TextStyle(color: Colors.white),
                         ),
                       ),
-                      const SizedBox(height: 32),
-                      const Row(
-                        children: [
-                          Icon(FontAwesomeIcons.envelope),
-                          SizedBox(width: 16),
-                          SelectableText('danubioalves@gmail.com'),
-                        ],
-                      ),
-                      const SizedBox(height: 8),
-                      Row(
-                        children: [
-                          const Icon(FontAwesomeIcons.whatsapp),
-                          const SizedBox(width: 16),
-                          InkWell(
-                            child: HoverWidget(
-                              onHover: (_) {
-                                setState(() {
-                                  isHover = true;
-                                });
-                              },
-                              hoverChild: const Text(
-                                '+55 88 98155-1948',
-                                style: TextStyle(
-                                  fontSize: 15,
-                                  color: Color.fromARGB(255, 139, 209, 200),
-                                ),
-                              ),
-                              child: const SelectableText(
-                                '+55 88 98155-1948',
-                                style: TextStyle(
-                                    color: Color.fromRGBO(69, 117, 116, 1),
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            ),
-                            onTap: () async {
-                              const url = 'https://wa.me/5588981551948';
-                              if (await canLaunchUrl(Uri.parse(url))) {
-                                await launchUrl(Uri.parse(url));
-                              } else {
-                                throw 'Could not  launch $url';
-                              }
-                            },
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 8),
-                      Row(
-                        children: [
-                          const Icon(FontAwesomeIcons.linkedin),
-                          const SizedBox(width: 16),
-                          InkWell(
-                            child: HoverWidget(
-                              hoverChild: const Text(
-                                'LinkedIn',
-                                style: TextStyle(
-                                  fontSize: 15,
-                                  color: Color.fromARGB(255, 139, 209, 200),
-                                ),
-                              ),
-                              onHover: (_) {
-                                setState(() {
-                                  isHover = true;
-                                });
-                              },
-                              child: const Text('LinkedIn',
-                                  style: TextStyle(
-                                      color: Color.fromRGBO(69, 117, 116, 1),
-                                      fontWeight: FontWeight.bold)),
-                            ),
-                            onTap: () async {
-                              const url =
-                                  'https://www.linkedin.com/in/danubio-leite/';
-                              if (await canLaunchUrl(Uri.parse(url))) {
-                                await launchUrl(Uri.parse(url));
-                              } else {
-                                throw 'Could not  launch $url';
-                              }
-                            },
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 8),
-                      Row(
-                        children: [
-                          const Icon(FontAwesomeIcons.user),
-                          const SizedBox(width: 16),
-                          InkWell(
-                            child: HoverWidget(
-                              hoverChild: const Text(
-                                '99 Freelas',
-                                style: TextStyle(
-                                  fontSize: 15,
-                                  color: Color.fromARGB(255, 139, 209, 200),
-                                ),
-                              ),
-                              onHover: (_) {
-                                setState(() {
-                                  isHover = true;
-                                });
-                              },
-                              child: const Text('99 Freelas',
-                                  style: TextStyle(
-                                      color: Color.fromRGBO(69, 117, 116, 1),
-                                      fontWeight: FontWeight.bold)),
-                            ),
-                            onTap: () async {
-                              const url =
-                                  'https://www.99freelas.com.br/user/JDanubio';
-                              if (await canLaunchUrl(Uri.parse(url))) {
-                                await launchUrl(Uri.parse(url));
-                              } else {
-                                throw 'Could not  launch $url';
-                              }
-                            },
-                          ),
-                        ],
-                      ),
                     ],
                   ),
                 ),
               ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  children: [
+                    const Row(
+                      children: [
+                        Icon(FontAwesomeIcons.envelope),
+                        SizedBox(width: 14),
+                        SelectableText('danubioalves@gmail.com'),
+                      ],
+                    ),
+                    const SizedBox(height: 6),
+                    Row(
+                      children: [
+                        const Icon(FontAwesomeIcons.whatsapp),
+                        const SizedBox(width: 14),
+                        InkWell(
+                          child: HoverWidget(
+                            onHover: (_) {
+                              setState(() {
+                                isHover = true;
+                              });
+                            },
+                            hoverChild: const Text(
+                              '+55 88 98155-1948',
+                              style: TextStyle(
+                                fontSize: 15,
+                                color: Color.fromARGB(255, 139, 209, 200),
+                              ),
+                            ),
+                            child: const SelectableText(
+                              '+55 88 98155-1948',
+                              style: TextStyle(
+                                  color: Color.fromRGBO(69, 117, 116, 1),
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          onTap: () async {
+                            const url = 'https://wa.me/5588981551948';
+                            if (await canLaunchUrl(Uri.parse(url))) {
+                              await launchUrl(Uri.parse(url));
+                            } else {
+                              throw 'Could not  launch $url';
+                            }
+                          },
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 6),
+                    Row(
+                      children: [
+                        const Icon(FontAwesomeIcons.linkedin),
+                        const SizedBox(width: 14),
+                        InkWell(
+                          child: HoverWidget(
+                            hoverChild: const Text(
+                              'LinkedIn',
+                              style: TextStyle(
+                                fontSize: 15,
+                                color: Color.fromARGB(255, 139, 209, 200),
+                              ),
+                            ),
+                            onHover: (_) {
+                              setState(() {
+                                isHover = true;
+                              });
+                            },
+                            child: const Text('LinkedIn',
+                                style: TextStyle(
+                                    color: Color.fromRGBO(69, 117, 116, 1),
+                                    fontWeight: FontWeight.bold)),
+                          ),
+                          onTap: () async {
+                            const url =
+                                'https://www.linkedin.com/in/danubio-leite/';
+                            if (await canLaunchUrl(Uri.parse(url))) {
+                              await launchUrl(Uri.parse(url));
+                            } else {
+                              throw 'Could not  launch $url';
+                            }
+                          },
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 6),
+                    Row(
+                      children: [
+                        const Icon(FontAwesomeIcons.user),
+                        const SizedBox(width: 14),
+                        InkWell(
+                          child: HoverWidget(
+                            hoverChild: const Text(
+                              '99 Freelas',
+                              style: TextStyle(
+                                fontSize: 15,
+                                color: Color.fromARGB(255, 139, 209, 200),
+                              ),
+                            ),
+                            onHover: (_) {
+                              setState(() {
+                                isHover = true;
+                              });
+                            },
+                            child: const Text('99 Freelas',
+                                style: TextStyle(
+                                    color: Color.fromRGBO(69, 117, 116, 1),
+                                    fontWeight: FontWeight.bold)),
+                          ),
+                          onTap: () async {
+                            const url =
+                                'https://www.99freelas.com.br/user/JDanubio';
+                            if (await canLaunchUrl(Uri.parse(url))) {
+                              await launchUrl(Uri.parse(url));
+                            } else {
+                              throw 'Could not  launch $url';
+                            }
+                          },
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              )
             ],
           ),
         ),

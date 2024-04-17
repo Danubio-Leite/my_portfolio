@@ -43,19 +43,16 @@ class ListItems extends StatelessWidget {
                   ),
                 ],
               ),
-              GestureDetector(
-                onTap: () => onMenuClick(3),
-                // onTap: () {
-                //   controller.animateToPage(
-                //     3,
-                //     duration: const Duration(milliseconds: 500),
-                //     curve: Curves.easeInOut,
-                //   );
-                //   Navigator.pop(context);
-                // },
-                child: const ListTile(
-                  leading: Icon(FontAwesomeIcons.commentDots),
-                  title: Text(
+              ListTile(
+                leading: const Icon(FontAwesomeIcons.commentDots),
+                title: InkWell(
+                  onTap: () {
+                    Navigator.of(context).pop();
+                    onMenuClick(2);
+                  },
+                  overlayColor: MaterialStateProperty.all(Colors.transparent),
+                  hoverColor: Colors.transparent,
+                  child: const Text(
                     'Enviar Mensagem',
                     style: TextStyle(
                         color: Color.fromRGBO(69, 117, 116, 1),

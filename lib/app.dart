@@ -3,8 +3,14 @@ import 'package:popover/popover.dart';
 import 'components/menu.dart';
 import 'components/pop_contact_list.dart';
 import 'pages/contact_page.dart';
+import 'pages/contact_page/contact_mobile.dart';
+import 'pages/contact_page/contact_web.dart';
+import 'pages/home_page/home_mobile.dart';
 import 'pages/home_page.dart';
+import 'pages/home_page/home_web.dart';
 import 'pages/projects_page.dart';
+import 'pages/projects_page/projects_mobile.dart';
+import 'pages/projects_page/projects_web.dart';
 
 class MyApp extends StatefulWidget {
   const MyApp({
@@ -29,6 +35,9 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    bool mobile = width < 600 ? true : false;
+
     return MaterialApp(
       title: 'Danúbio Leite',
       theme: ThemeData(
@@ -38,10 +47,14 @@ class _MyAppState extends State<MyApp> {
       home: Scaffold(
           floatingActionButton: Builder(
             builder: (context) => Padding(
-              padding: const EdgeInsets.only(
-                right: 12.0,
+              padding: EdgeInsets.only(
+                right: mobile ? 0 : 12.0,
+                bottom: mobile ? 0 : 6.0,
               ),
               child: FloatingActionButton(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
                 onPressed: () {
                   showPopover(
                     context: context,
@@ -50,11 +63,12 @@ class _MyAppState extends State<MyApp> {
                       controller: scrollController,
                     ),
                     onPop: () {},
-                    direction: PopoverDirection.left,
-                    width: 400,
+                    direction:
+                        mobile ? PopoverDirection.top : PopoverDirection.left,
+                    width: mobile ? 300 : 400,
                     height: 300,
-                    arrowHeight: 15,
-                    arrowWidth: 30,
+                    arrowHeight: mobile ? 10 : 15,
+                    arrowWidth: mobile ? 20 : 30,
                   );
                 },
                 backgroundColor: const Color.fromARGB(255, 54, 84, 83),
@@ -64,26 +78,49 @@ class _MyAppState extends State<MyApp> {
             ),
           ),
           backgroundColor: const Color.fromARGB(255, 54, 84, 83),
-          appBar: AppBar(
-            backgroundColor: const Color.fromARGB(255, 54, 84, 83),
-            elevation: 0,
-            scrolledUnderElevation: 0,
-            title: Menu(
-              onMenuClick: _onMenuClick,
+          appBar: PreferredSize(
+            preferredSize: const Size.fromHeight(60.0),
+            child: AppBar(
+              backgroundColor: const Color.fromARGB(255, 54, 84, 83),
+              elevation: 0,
+              scrolledUnderElevation: 0,
+              title: Menu(
+                onMenuClick: _onMenuClick,
+              ),
             ),
           ),
           body: SingleChildScrollView(
             controller: scrollController,
             child: Column(
               children: [
-                HomePage(
-                  key: keySecao1,
+                Container(
+                  child: mobile
+                      ? HomeMobilePage(
+                          onMenuClick: _onMenuClick,
+                          key: keySecao1,
+                        )
+                      : HomeWebPage(
+                          onMenuClick: _onMenuClick,
+                          key: keySecao1,
+                        ),
                 ),
-                ProjectsPage(
-                  key: keySecao2,
+                Container(
+                  child: mobile
+                      ? ProjectsMobilePage(
+                          key: keySecao2,
+                        )
+                      : ProjectsWebPage(
+                          key: keySecao2,
+                        ),
                 ),
-                ContactPage(
-                  key: keySecao3,
+                Container(
+                  child: mobile
+                      ? ContactMobilePage(
+                          key: keySecao3,
+                        )
+                      : ContactWebPage(
+                          key: keySecao3,
+                        ),
                 ),
               ],
             ),
@@ -91,57 +128,29 @@ class _MyAppState extends State<MyApp> {
     );
   }
 
-  _onMenuClick(int value) {
-    final RenderBox? renderBox;
-
-    switch (value) {
+  void _onMenuClick(int index) {
+    double width = MediaQuery.of(context).size.width;
+    bool mobile = width < 600 ? true : false;
+    Future<void> future = Future.value();
+    switch (index) {
+      case 0:
+        future = Scrollable.ensureVisible(keySecao1.currentContext!,
+            duration: const Duration(milliseconds: 600), curve: Curves.linear);
+        break;
       case 1:
-        renderBox = keySecao1.currentContext?.findRenderObject() as RenderBox?;
+        future = Scrollable.ensureVisible(keySecao2.currentContext!,
+            duration: const Duration(milliseconds: 600), curve: Curves.linear);
         break;
       case 2:
-        renderBox = keySecao2.currentContext?.findRenderObject() as RenderBox?;
+        future = Scrollable.ensureVisible(keySecao3.currentContext!,
+            duration: const Duration(milliseconds: 600), curve: Curves.linear);
         break;
-      case 3:
-        renderBox = keySecao3.currentContext?.findRenderObject() as RenderBox?;
-        break;
-      default:
-        throw Exception();
     }
 
-    if (renderBox != null) {
-      final offset = renderBox.localToGlobal(Offset.zero);
-      scrollController.animateTo(
-        offset.dy,
-        duration: const Duration(milliseconds: 500),
-        curve: Curves.easeInOut,
-      );
-    } else {
-      print('RenderBox is null. The widget may not have been rendered yet.');
-    }
+    future.then((_) {
+      final position = scrollController.position.pixels + (mobile ? 0 : 40);
+      scrollController.animateTo(position,
+          duration: const Duration(milliseconds: 600), curve: Curves.linear);
+    });
   }
-
-  // _onMenuClick(int value) {
-  //   final RenderBox renderBox;
-
-  //   switch (value) {
-  //     case 1:
-  //       renderBox = keySecao1.currentContext!.findRenderObject() as RenderBox;
-
-  //       break;
-  //     case 2:
-  //       renderBox = keySecao2.currentContext!.findRenderObject() as RenderBox;
-  //       break;
-  //     case 3:
-  //       renderBox = keySecao3.currentContext!.findRenderObject() as RenderBox;
-  //       break;
-  //     default:
-  //       throw Exception();
-  //   }
-  //   final offset = renderBox.localToGlobal(Offset.zero);
-  //   scrollController.animateTo(
-  //     offset.dy,
-  //     duration: const Duration(milliseconds: 500),
-  //     curve: Curves.easeInOut,
-  //   );
-  // }
 }

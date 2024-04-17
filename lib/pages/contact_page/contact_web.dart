@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:hovering/hovering.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class ContactPage extends StatefulWidget {
-  const ContactPage({super.key});
+class ContactWebPage extends StatefulWidget {
+  const ContactWebPage({super.key});
 
   @override
-  State<ContactPage> createState() => _ContactPageState();
+  State<ContactWebPage> createState() => _ContactWebPageState();
 }
 
-class _ContactPageState extends State<ContactPage> {
+class _ContactWebPageState extends State<ContactWebPage> {
   bool isHover = false;
   final _formKey = GlobalKey<FormState>();
 
