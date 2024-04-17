@@ -3,10 +3,14 @@ import 'package:popover/popover.dart';
 import 'components/menu.dart';
 import 'components/pop_contact_list.dart';
 import 'pages/contact_page.dart';
+import 'pages/contact_page/contact_mobile.dart';
+import 'pages/contact_page/contact_web.dart';
 import 'pages/home_page/home_mobile.dart';
-import 'pages/home_page/home_page.dart';
+import 'pages/home_page.dart';
 import 'pages/home_page/home_web.dart';
 import 'pages/projects_page.dart';
+import 'pages/projects_page/projects_mobile.dart';
+import 'pages/projects_page/projects_web.dart';
 
 class MyApp extends StatefulWidget {
   const MyApp({
@@ -43,9 +47,9 @@ class _MyAppState extends State<MyApp> {
       home: Scaffold(
           floatingActionButton: Builder(
             builder: (context) => Padding(
-              padding: const EdgeInsets.only(
-                right: 12.0,
-                bottom: 6.0,
+              padding: EdgeInsets.only(
+                right: mobile ? 0 : 12.0,
+                bottom: mobile ? 0 : 6.0,
               ),
               child: FloatingActionButton(
                 shape: RoundedRectangleBorder(
@@ -74,12 +78,15 @@ class _MyAppState extends State<MyApp> {
             ),
           ),
           backgroundColor: const Color.fromARGB(255, 54, 84, 83),
-          appBar: AppBar(
-            backgroundColor: const Color.fromARGB(255, 54, 84, 83),
-            elevation: 0,
-            scrolledUnderElevation: 0,
-            title: Menu(
-              onMenuClick: _onMenuClick,
+          appBar: PreferredSize(
+            preferredSize: const Size.fromHeight(60.0),
+            child: AppBar(
+              backgroundColor: const Color.fromARGB(255, 54, 84, 83),
+              elevation: 0,
+              scrolledUnderElevation: 0,
+              title: Menu(
+                onMenuClick: _onMenuClick,
+              ),
             ),
           ),
           body: SingleChildScrollView(
@@ -97,11 +104,23 @@ class _MyAppState extends State<MyApp> {
                           key: keySecao1,
                         ),
                 ),
-                ProjectsPage(
-                  key: keySecao2,
+                Container(
+                  child: mobile
+                      ? ProjectsMobilePage(
+                          key: keySecao2,
+                        )
+                      : ProjectsWebPage(
+                          key: keySecao2,
+                        ),
                 ),
-                ContactPage(
-                  key: keySecao3,
+                Container(
+                  child: mobile
+                      ? ContactMobilePage(
+                          key: keySecao3,
+                        )
+                      : ContactWebPage(
+                          key: keySecao3,
+                        ),
                 ),
               ],
             ),

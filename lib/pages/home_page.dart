@@ -1,8 +1,8 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-import 'home_mobile.dart';
-import 'home_web.dart';
+import 'home_page/home_mobile.dart';
+import 'home_page/home_web.dart';
 
 class HomePage extends StatelessWidget {
   final ValueChanged<int> onMenuClick;
