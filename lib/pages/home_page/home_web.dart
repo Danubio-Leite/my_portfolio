@@ -30,7 +30,7 @@ class HomeWebPage extends StatelessWidget {
               ]),
         ),
         // color: Colors.white,
-        height: MediaQuery.of(context).size.height,
+        height: MediaQuery.of(context).size.height - 40,
         child: Container(
           width: width,
           padding: EdgeInsets.only(

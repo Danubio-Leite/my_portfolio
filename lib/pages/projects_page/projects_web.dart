@@ -53,7 +53,7 @@ class _ProjectsWebPageState extends State<ProjectsWebPage> {
                 Color.fromRGBO(225, 225, 225, 1),
               ]),
         ),
-        height: MediaQuery.of(context).size.height,
+        height: MediaQuery.of(context).size.height - 40,
         width: MediaQuery.of(context).size.width,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,

@@ -39,7 +39,7 @@ class _ContactWebPageState extends State<ContactWebPage> {
               ]),
           // color: Colors.white,
         ),
-        height: MediaQuery.of(context).size.height,
+        height: MediaQuery.of(context).size.height - 40,
         child: Form(
           key: _formKey,
           child: Column(

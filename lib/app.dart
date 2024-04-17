@@ -79,7 +79,7 @@ class _MyAppState extends State<MyApp> {
           ),
           backgroundColor: const Color.fromARGB(255, 54, 84, 83),
           appBar: PreferredSize(
-            preferredSize: const Size.fromHeight(60.0),
+            preferredSize: const Size.fromHeight(40.0),
             child: AppBar(
               backgroundColor: const Color.fromARGB(255, 54, 84, 83),
               elevation: 0,
@@ -148,9 +148,10 @@ class _MyAppState extends State<MyApp> {
     }
 
     future.then((_) {
-      final position = scrollController.position.pixels + (mobile ? 0 : 40);
+      final position = scrollController.position.pixels;
+      // final position = scrollController.position.pixels + (mobile ? 0 : 40);
       scrollController.animateTo(position,
-          duration: const Duration(milliseconds: 600), curve: Curves.linear);
+          duration: const Duration(milliseconds: 700), curve: Curves.linear);
     });
   }
 }
