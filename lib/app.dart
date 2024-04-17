@@ -32,6 +32,8 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
+    bool mobile = width < 600 ? true : false;
+
     return MaterialApp(
       title: 'Danúbio Leite',
       theme: ThemeData(
@@ -57,11 +59,12 @@ class _MyAppState extends State<MyApp> {
                       controller: scrollController,
                     ),
                     onPop: () {},
-                    direction: PopoverDirection.left,
-                    width: 400,
+                    direction:
+                        mobile ? PopoverDirection.top : PopoverDirection.left,
+                    width: mobile ? 300 : 400,
                     height: 300,
-                    arrowHeight: 15,
-                    arrowWidth: 30,
+                    arrowHeight: mobile ? 10 : 15,
+                    arrowWidth: mobile ? 20 : 30,
                   );
                 },
                 backgroundColor: const Color.fromARGB(255, 54, 84, 83),
@@ -84,12 +87,12 @@ class _MyAppState extends State<MyApp> {
             child: Column(
               children: [
                 Container(
-                  child: width > 600
-                      ? HomeWebPage(
+                  child: mobile
+                      ? HomeMobilePage(
                           onMenuClick: _onMenuClick,
                           key: keySecao1,
                         )
-                      : HomeMobilePage(
+                      : HomeWebPage(
                           onMenuClick: _onMenuClick,
                           key: keySecao1,
                         ),
@@ -107,6 +110,8 @@ class _MyAppState extends State<MyApp> {
   }
 
   void _onMenuClick(int index) {
+    double width = MediaQuery.of(context).size.width;
+    bool mobile = width < 600 ? true : false;
     Future<void> future = Future.value();
     switch (index) {
       case 0:
@@ -124,7 +129,7 @@ class _MyAppState extends State<MyApp> {
     }
 
     future.then((_) {
-      final position = scrollController.position.pixels + 40;
+      final position = scrollController.position.pixels + (mobile ? 0 : 40);
       scrollController.animateTo(position,
           duration: const Duration(milliseconds: 600), curve: Curves.linear);
     });

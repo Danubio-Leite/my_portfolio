@@ -9,7 +9,7 @@ class HomeMobilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      padding: const EdgeInsets.symmetric(horizontal: 8.0),
       child: Container(
         decoration: const BoxDecoration(
           borderRadius: BorderRadius.only(
@@ -20,7 +20,7 @@ class HomeMobilePage extends StatelessWidget {
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
               colors: [
-                Color.fromRGBO(170, 190, 196, 1),
+                Color.fromRGBO(255, 255, 255, 1),
                 Color.fromRGBO(250, 250, 250, 1),
                 Color.fromRGBO(245, 245, 245, 1),
                 Color.fromRGBO(240, 240, 240, 1),
@@ -34,15 +34,16 @@ class HomeMobilePage extends StatelessWidget {
         child: Container(
           width: width,
           padding: EdgeInsets.only(
-              left: width / 6,
-              right: width / 6,
-              top: width / 22,
-              bottom: width / 20),
+            left: width / 10,
+            right: width / 10,
+            top: width / 22,
+            bottom: width / 20,
+          ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Padding(
-                padding: const EdgeInsets.only(top: 36.0),
+                padding: const EdgeInsets.only(top: 36.0, bottom: 60.0),
                 child: Image.asset(
                   'images/profile1.png',
                   width: width / 2,
@@ -50,21 +51,21 @@ class HomeMobilePage extends StatelessWidget {
               ),
               Flexible(
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
                       'Danúbio Leite',
                       style: TextStyle(
                           fontFamily: 'Miriam Libre',
-                          fontSize: width / 15,
+                          fontSize: width / 14,
                           fontWeight: FontWeight.bold,
                           color: const Color.fromRGBO(69, 117, 116, 1)),
                     ),
                     Text(
                       'Desenvolvedor Mobile',
                       style: TextStyle(
-                          fontSize: width / 25,
+                          fontSize: width / 18,
                           fontWeight: FontWeight.bold,
                           color: Colors.black87),
                     ),
@@ -74,7 +75,7 @@ class HomeMobilePage extends StatelessWidget {
                         textAlign: TextAlign.center,
                         text: TextSpan(
                           style: TextStyle(
-                            fontSize: width / 40,
+                            fontSize: width / 30,
                             color: Colors.black,
                           ),
                           children: <TextSpan>[
