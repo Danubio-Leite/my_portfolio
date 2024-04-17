@@ -25,7 +25,19 @@ class _ContactPageState extends State<ContactPage> {
             bottomLeft: Radius.circular(4.0),
             bottomRight: Radius.circular(4.0),
           ),
-          color: Colors.white,
+          gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [
+                Color.fromRGBO(255, 255, 255, 1),
+                Color.fromRGBO(250, 250, 250, 1),
+                Color.fromRGBO(245, 245, 245, 1),
+                Color.fromRGBO(240, 240, 240, 1),
+                Color.fromRGBO(235, 235, 235, 1),
+                Color.fromRGBO(230, 230, 230, 1),
+                Color.fromRGBO(225, 225, 225, 1),
+              ]),
+          // color: Colors.white,
         ),
         height: MediaQuery.of(context).size.height,
         child: Form(
@@ -155,11 +167,40 @@ class _ContactPageState extends State<ContactPage> {
                         ],
                       ),
                       const SizedBox(height: 8),
-                      const Row(
+                      Row(
                         children: [
-                          Icon(FontAwesomeIcons.whatsapp),
-                          SizedBox(width: 16),
-                          SelectableText('+55 88 98155-1948'),
+                          const Icon(FontAwesomeIcons.whatsapp),
+                          const SizedBox(width: 16),
+                          InkWell(
+                            child: HoverWidget(
+                              onHover: (_) {
+                                setState(() {
+                                  isHover = true;
+                                });
+                              },
+                              hoverChild: const Text(
+                                '+55 88 98155-1948',
+                                style: TextStyle(
+                                  fontSize: 15,
+                                  color: Color.fromARGB(255, 139, 209, 200),
+                                ),
+                              ),
+                              child: const SelectableText(
+                                '+55 88 98155-1948',
+                                style: TextStyle(
+                                    color: Color.fromRGBO(69, 117, 116, 1),
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                            onTap: () async {
+                              const url = 'https://wa.me/5588981551948';
+                              if (await canLaunchUrl(Uri.parse(url))) {
+                                await launchUrl(Uri.parse(url));
+                              } else {
+                                throw 'Could not  launch $url';
+                              }
+                            },
+                          ),
                         ],
                       ),
                       const SizedBox(height: 8),

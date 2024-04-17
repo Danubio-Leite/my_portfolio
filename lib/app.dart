@@ -3,7 +3,9 @@ import 'package:popover/popover.dart';
 import 'components/menu.dart';
 import 'components/pop_contact_list.dart';
 import 'pages/contact_page.dart';
-import 'pages/home_page.dart';
+import 'pages/home_page/home_mobile.dart';
+import 'pages/home_page/home_page.dart';
+import 'pages/home_page/home_web.dart';
 import 'pages/projects_page.dart';
 
 class MyApp extends StatefulWidget {
@@ -29,6 +31,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
     return MaterialApp(
       title: 'Danúbio Leite',
       theme: ThemeData(
@@ -80,9 +83,16 @@ class _MyAppState extends State<MyApp> {
             controller: scrollController,
             child: Column(
               children: [
-                HomePage(
-                  onMenuClick: _onMenuClick,
-                  key: keySecao1,
+                Container(
+                  child: width > 600
+                      ? HomeWebPage(
+                          onMenuClick: _onMenuClick,
+                          key: keySecao1,
+                        )
+                      : HomeMobilePage(
+                          onMenuClick: _onMenuClick,
+                          key: keySecao1,
+                        ),
                 ),
                 ProjectsPage(
                   key: keySecao2,

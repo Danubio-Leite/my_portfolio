@@ -1,9 +1,9 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
+class HomeWebPage extends StatelessWidget {
   final ValueChanged<int> onMenuClick;
-  const HomePage({super.key, required this.onMenuClick});
+  const HomeWebPage({super.key, required this.onMenuClick});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,18 @@ class HomePage extends StatelessWidget {
             topLeft: Radius.circular(4.0),
             topRight: Radius.circular(4.0),
           ),
-          color: Colors.white,
+          gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [
+                Color.fromRGBO(255, 255, 255, 1),
+                Color.fromRGBO(250, 250, 250, 1),
+                Color.fromRGBO(245, 245, 245, 1),
+                Color.fromRGBO(240, 240, 240, 1),
+                Color.fromRGBO(235, 235, 235, 1),
+                Color.fromRGBO(230, 230, 230, 1),
+                Color.fromRGBO(225, 225, 225, 1),
+              ]),
         ),
         // color: Colors.white,
         height: MediaQuery.of(context).size.height,
@@ -69,7 +80,7 @@ class HomePage extends StatelessWidget {
                                 fontFamily: 'Lekton',
                               ),
                               text:
-                                  'Há três anos venho desenvolvendo aplicações multiplataforma responsivas, intuitivas e com design moderno. Atualmente, trabalho na criação de aplicativos próprios e participo de projetos como freelancer. Precisa de ajuda para tirar sua ideia do papel? ',
+                                  'Desenvolvo aplicações multiplataforma responsivas, intuitivas e com design moderno. Atualmente, trabalho na criação de aplicativos próprios e participo de projetos como freelancer. Precisa de ajuda para tirar sua ideia do papel? ',
                             ),
                             TextSpan(
                               recognizer: TapGestureRecognizer()

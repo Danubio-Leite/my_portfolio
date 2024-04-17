@@ -38,7 +38,20 @@ class _ProjectsPageState extends State<ProjectsPage> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: Container(
-        color: Colors.white,
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+              begin: Alignment.bottomCenter,
+              end: Alignment.topCenter,
+              colors: [
+                Color.fromRGBO(255, 255, 255, 1),
+                Color.fromRGBO(250, 250, 250, 1),
+                Color.fromRGBO(245, 245, 245, 1),
+                Color.fromRGBO(240, 240, 240, 1),
+                Color.fromRGBO(235, 235, 235, 1),
+                Color.fromRGBO(230, 230, 230, 1),
+                Color.fromRGBO(225, 225, 225, 1),
+              ]),
+        ),
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
         child: Column(
