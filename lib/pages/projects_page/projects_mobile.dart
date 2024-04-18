@@ -167,7 +167,10 @@ class _ProjectsMobilePageState extends State<ProjectsMobilePage> {
                         controller: _pageController,
                         itemCount: projectItems.length,
                         itemBuilder: (context, index) {
-                          return projectItems[index];
+                          return Padding(
+                            padding: const EdgeInsets.all(64.0),
+                            child: projectItems[index],
+                          );
                         },
                       ),
                     ),
