@@ -4,13 +4,13 @@ class ProjectItem extends StatelessWidget {
   final String appName;
   final String appDescription;
   final String image;
-  final Widget buttons;
+  final Widget? buttons;
   const ProjectItem(
       {super.key,
       required this.appName,
       required this.appDescription,
       required this.image,
-      required this.buttons});
+      this.buttons});
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +47,7 @@ class ProjectItem extends StatelessWidget {
             style: const TextStyle(fontSize: 14),
           ),
           const SizedBox(height: 16),
-          buttons,
+          if (buttons != null) buttons!,
         ],
       ),
     );

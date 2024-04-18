@@ -52,39 +52,39 @@ class _ProjectsMobilePageState extends State<ProjectsMobilePage> {
         appDescription:
             'App direcionado para funcionários de bancos e instituições financeiras.',
         image: 'images/Calculadora_Screen_$_imageIndex.png',
-        buttons: SizedBox(
-          width: 300,
-          child: Row(
-            children: [
-              GitButton(
-                text: false,
-                onPressed: () async {
-                  const url =
-                      'https://github.com/Danubio-Leite/calculadora_bancario';
-                  if (await canLaunchUrl(Uri.parse(url))) {
-                    await launchUrl(Uri.parse(url));
-                  } else {
-                    throw 'Could not launch $url';
-                  }
-                },
-              ),
-              const SizedBox(width: 8),
-              Flexible(
-                child: PlayButton(
-                  onPressed: () async {
-                    const url =
-                        'https://play.google.com/store/apps/details?id=br.com.danubioleite.calculadora_bancario';
-                    if (await canLaunchUrl(Uri.parse(url))) {
-                      await launchUrl(Uri.parse(url));
-                    } else {
-                      throw 'Could not launch $url';
-                    }
-                  },
-                ),
-              ),
-            ],
-          ),
-        ),
+        // buttons: SizedBox(
+        //   width: 300,
+        //   child: Row(
+        //     children: [
+        //       GitButton(
+        //         text: false,
+        //         onPressed: () async {
+        //           const url =
+        //               'https://github.com/Danubio-Leite/calculadora_bancario';
+        //           if (await canLaunchUrl(Uri.parse(url))) {
+        //             await launchUrl(Uri.parse(url));
+        //           } else {
+        //             throw 'Could not launch $url';
+        //           }
+        //         },
+        //       ),
+        //       const SizedBox(width: 8),
+        //       Flexible(
+        //         child: PlayButton(
+        //           onPressed: () async {
+        //             const url =
+        //                 'https://play.google.com/store/apps/details?id=br.com.danubioleite.calculadora_bancario';
+        //             if (await canLaunchUrl(Uri.parse(url))) {
+        //               await launchUrl(Uri.parse(url));
+        //             } else {
+        //               throw 'Could not launch $url';
+        //             }
+        //           },
+        //         ),
+        //       ),
+        //     ],
+        //   ),
+        // ),
       ),
       ProjectItem(
         appName: 'Minha Biblioteca',
@@ -167,10 +167,7 @@ class _ProjectsMobilePageState extends State<ProjectsMobilePage> {
                         controller: _pageController,
                         itemCount: projectItems.length,
                         itemBuilder: (context, index) {
-                          return Padding(
-                            padding: const EdgeInsets.all(64.0),
-                            child: projectItems[index],
-                          );
+                          return projectItems[index];
                         },
                       ),
                     ),
