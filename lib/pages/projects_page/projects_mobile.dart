@@ -20,6 +20,8 @@ class _ProjectsMobilePageState extends State<ProjectsMobilePage> {
   late Timer _timer;
   PageController _pageController = PageController();
   late List<Widget> projectItems;
+  bool _showLeftArrow = false;
+  bool _showRightArrow = true;
 
   @override
   void initState() {
@@ -103,6 +105,24 @@ class _ProjectsMobilePageState extends State<ProjectsMobilePage> {
         ),
       ),
     ];
+    _pageController.addListener(() {
+      if (_pageController.page == 0) {
+        setState(() {
+          _showLeftArrow = false;
+          _showRightArrow = true;
+        });
+      } else if (_pageController.page == projectItems.length - 1) {
+        setState(() {
+          _showLeftArrow = true;
+          _showRightArrow = false;
+        });
+      } else {
+        setState(() {
+          _showLeftArrow = true;
+          _showRightArrow = true;
+        });
+      }
+    });
   }
 
   @override
@@ -163,15 +183,53 @@ class _ProjectsMobilePageState extends State<ProjectsMobilePage> {
                     ),
                     const SizedBox(height: 8),
                     Expanded(
-                      child: PageView.builder(
-                        controller: _pageController,
-                        itemCount: projectItems.length,
-                        itemBuilder: (context, index) {
-                          return Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: projectItems[index],
-                          );
-                        },
+                      child: Stack(
+                        children: [
+                          PageView.builder(
+                            controller: _pageController,
+                            itemCount: projectItems.length,
+                            itemBuilder: (context, index) {
+                              return Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: projectItems[index],
+                              );
+                            },
+                          ),
+                          Positioned(
+                            left: 10,
+                            top: 0,
+                            bottom: 0,
+                            child: Visibility(
+                              visible: _showLeftArrow,
+                              child: IconButton(
+                                icon: Icon(Icons.arrow_back),
+                                onPressed: () {
+                                  _pageController.previousPage(
+                                    duration: Duration(milliseconds: 300),
+                                    curve: Curves.easeIn,
+                                  );
+                                },
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            right: 10,
+                            top: 0,
+                            bottom: 0,
+                            child: Visibility(
+                              visible: _showRightArrow,
+                              child: IconButton(
+                                icon: Icon(Icons.arrow_forward),
+                                onPressed: () {
+                                  _pageController.nextPage(
+                                    duration: Duration(milliseconds: 300),
+                                    curve: Curves.easeIn,
+                                  );
+                                },
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ],
