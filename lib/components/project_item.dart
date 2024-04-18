@@ -37,13 +37,13 @@ class ProjectItem extends StatelessWidget {
         Text(
           appName,
           textAlign: TextAlign.center,
-          style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 8),
         Text(
           appDescription,
           textAlign: TextAlign.center,
-          style: const TextStyle(fontSize: 14),
+          style: const TextStyle(fontSize: 12),
         ),
         const SizedBox(height: 16),
         if (buttons != null) buttons!,

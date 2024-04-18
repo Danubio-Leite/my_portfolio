@@ -6,9 +6,10 @@ class PlayButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
     return SizedBox(
-      height: 54,
-      width: 300,
+      height: width < 600 ? 49 : 54,
+      width: width < 600 ? 150 : 300,
       child: ElevatedButton(
           onPressed: onPressed,
           style: ElevatedButton.styleFrom(
@@ -21,17 +22,28 @@ class PlayButton extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset('images/play.png', width: 32),
-              const SizedBox(width: 24),
-              const Column(
+              Image.asset(
+                'images/play.png',
+                width: width < 600 ? 24 : 32,
+              ),
+              const SizedBox(
+                width: 16,
+              ),
+              Column(
                 children: [
                   Text(
                     'Android App on',
-                    style: TextStyle(color: Colors.white, fontSize: 11),
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: width < 600 ? 10 : 11,
+                    ),
                   ),
                   Text(
                     'Google Play',
-                    style: TextStyle(color: Colors.white, fontSize: 15),
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: width < 600 ? 13 : 15,
+                    ),
                   ),
                 ],
               ),

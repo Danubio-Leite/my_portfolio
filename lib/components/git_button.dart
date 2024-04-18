@@ -13,9 +13,10 @@ class GitButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
     return SizedBox(
-      height: 54,
-      width: text ? 250 : 64,
+      height: width < 600 ? 49 : 54,
+      width: text ? (width < 600 ? 150 : 250) : (width < 600 ? 49 : 64),
       child: ElevatedButton(
           onPressed: onPressed,
           style: ElevatedButton.styleFrom(
@@ -28,12 +29,13 @@ class GitButton extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset('images/git.png', width: 32),
+              Image.asset('images/git.png', width: width < 600 ? 24 : 32),
               if (text == true) const SizedBox(width: 16),
               if (text == true)
-                const Text(
+                Text(
                   'Código do App',
-                  style: TextStyle(color: Colors.white, fontSize: 18),
+                  style: TextStyle(
+                      color: Colors.white, fontSize: width < 600 ? 14 : 18),
                 ),
             ],
           )),
