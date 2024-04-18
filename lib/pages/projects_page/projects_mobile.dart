@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:awesome_icons/awesome_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/components/git_button.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -202,10 +203,12 @@ class _ProjectsMobilePageState extends State<ProjectsMobilePage> {
                             child: Visibility(
                               visible: _showLeftArrow,
                               child: IconButton(
-                                icon: Icon(Icons.arrow_back),
+                                hoverColor: Colors.transparent,
+                                splashColor: Colors.transparent,
+                                icon: const Icon(Icons.arrow_back_ios),
                                 onPressed: () {
                                   _pageController.previousPage(
-                                    duration: Duration(milliseconds: 300),
+                                    duration: const Duration(milliseconds: 600),
                                     curve: Curves.easeIn,
                                   );
                                 },
@@ -219,10 +222,12 @@ class _ProjectsMobilePageState extends State<ProjectsMobilePage> {
                             child: Visibility(
                               visible: _showRightArrow,
                               child: IconButton(
-                                icon: Icon(Icons.arrow_forward),
+                                hoverColor: Colors.transparent,
+                                splashColor: Colors.transparent,
+                                icon: const Icon(Icons.arrow_forward_ios),
                                 onPressed: () {
                                   _pageController.nextPage(
-                                    duration: Duration(milliseconds: 300),
+                                    duration: const Duration(milliseconds: 600),
                                     curve: Curves.easeIn,
                                   );
                                 },
