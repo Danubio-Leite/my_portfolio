@@ -14,42 +14,40 @@ class ProjectItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Flexible(
-      child: Column(
-        children: [
-          Flexible(
-            child: LayoutBuilder(
-              builder: (BuildContext context, BoxConstraints constraints) {
-                return Stack(
-                  alignment: Alignment.center,
-                  children: [
-                    Image.asset(
-                      image,
-                      width: constraints.maxWidth * 0.855,
-                      height: constraints.maxHeight * 0.855,
-                    ),
-                    Image.asset('images/pixel_3.png'),
-                  ],
-                );
-              },
-            ),
+    return Column(
+      children: [
+        Flexible(
+          child: LayoutBuilder(
+            builder: (BuildContext context, BoxConstraints constraints) {
+              return Stack(
+                alignment: Alignment.center,
+                children: [
+                  Image.asset(
+                    image,
+                    width: constraints.maxWidth * 0.855,
+                    height: constraints.maxHeight * 0.855,
+                  ),
+                  Image.asset('images/pixel_3.png'),
+                ],
+              );
+            },
           ),
-          const SizedBox(height: 16),
-          Text(
-            appName,
-            textAlign: TextAlign.center,
-            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(height: 8),
-          Text(
-            appDescription,
-            textAlign: TextAlign.center,
-            style: const TextStyle(fontSize: 14),
-          ),
-          const SizedBox(height: 16),
-          if (buttons != null) buttons!,
-        ],
-      ),
+        ),
+        const SizedBox(height: 16),
+        Text(
+          appName,
+          textAlign: TextAlign.center,
+          style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        const SizedBox(height: 8),
+        Text(
+          appDescription,
+          textAlign: TextAlign.center,
+          style: const TextStyle(fontSize: 14),
+        ),
+        const SizedBox(height: 16),
+        if (buttons != null) buttons!,
+      ],
     );
   }
 }
