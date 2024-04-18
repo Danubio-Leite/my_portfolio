@@ -31,23 +31,6 @@ class _ProjectsMobilePageState extends State<ProjectsMobilePage> {
     });
     projectItems = [
       ProjectItem(
-        appName: 'Evolução Médica',
-        appDescription:
-            'App para ajudar profissionais de saúde no acompanhamento de pacientes.',
-        image: 'images/Evolucao_Screen_$_imageIndex.png',
-        buttons: GitButton(
-          text: true,
-          onPressed: () async {
-            const url = 'https://github.com/Danubio-Leite/evolucao_medica_2023';
-            if (await canLaunchUrl(Uri.parse(url))) {
-              await launchUrl(Uri.parse(url));
-            } else {
-              throw 'Could not  launch $url';
-            }
-          },
-        ),
-      ),
-      ProjectItem(
         appName: 'Calculadora do Bancário',
         appDescription:
             'App direcionado para funcionários de bancos e instituições financeiras.',
@@ -85,6 +68,23 @@ class _ProjectsMobilePageState extends State<ProjectsMobilePage> {
         //     ],
         //   ),
         // ),
+      ),
+      ProjectItem(
+        appName: 'Evolução Médica',
+        appDescription:
+            'App para ajudar profissionais de saúde no acompanhamento de pacientes.',
+        image: 'images/Evolucao_Screen_$_imageIndex.png',
+        buttons: GitButton(
+          text: true,
+          onPressed: () async {
+            const url = 'https://github.com/Danubio-Leite/evolucao_medica_2023';
+            if (await canLaunchUrl(Uri.parse(url))) {
+              await launchUrl(Uri.parse(url));
+            } else {
+              throw 'Could not  launch $url';
+            }
+          },
+        ),
       ),
       ProjectItem(
         appName: 'Minha Biblioteca',
@@ -167,7 +167,10 @@ class _ProjectsMobilePageState extends State<ProjectsMobilePage> {
                         controller: _pageController,
                         itemCount: projectItems.length,
                         itemBuilder: (context, index) {
-                          return projectItems[index];
+                          return Padding(
+                            padding: const EdgeInsets.all(64.0),
+                            child: projectItems[index],
+                          );
                         },
                       ),
                     ),
