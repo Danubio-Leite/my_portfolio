@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:my_portfolio/components/git_button.dart';
 import 'package:my_portfolio/components/project_item.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -88,52 +89,43 @@ class _ProjectsWebPageState extends State<ProjectsWebPage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          ProjectItem(
-                            appName: 'Evolução Médica',
-                            appDescription:
-                                'App para ajudar profissionais de saúde no acompanhamento de pacientes.',
-                            image: 'images/Evolucao_Screen_$_imageIndex.png',
-                            buttons: GitButton(
-                              text: true,
-                              onPressed: () async {
-                                const url =
-                                    'https://github.com/Danubio-Leite/evolucao_medica_2023';
-                                if (await canLaunchUrl(Uri.parse(url))) {
-                                  await launchUrl(Uri.parse(url));
-                                } else {
-                                  throw 'Could not  launch $url';
-                                }
-                              },
+                          Flexible(
+                            child: ProjectItem(
+                              appName: 'Evolução Médica',
+                              appDescription:
+                                  'App para ajudar profissionais de saúde no acompanhamento de pacientes.',
+                              image: 'images/Evolucao_Screen_$_imageIndex.png',
+                              buttons: GitButton(
+                                text: true,
+                                onPressed: () async {
+                                  const url =
+                                      'https://github.com/Danubio-Leite/evolucao_medica_2023';
+                                  if (await canLaunchUrl(Uri.parse(url))) {
+                                    await launchUrl(Uri.parse(url));
+                                  } else {
+                                    throw 'Could not  launch $url';
+                                  }
+                                },
+                              ),
                             ),
                           ),
                           const SizedBox(width: 16),
-                          ProjectItem(
-                            appName: 'Calculadora do Bancário',
-                            appDescription:
-                                'App direcionado para funcionários de bancos e instituições financeiras.',
-                            image: 'images/Calculadora_Screen_$_imageIndex.png',
-                            buttons: SizedBox(
-                              width: 300,
-                              child: Row(
-                                children: [
-                                  GitButton(
-                                    text: false,
-                                    onPressed: () async {
-                                      const url =
-                                          'https://github.com/Danubio-Leite/calculadora_bancario';
-                                      if (await canLaunchUrl(Uri.parse(url))) {
-                                        await launchUrl(Uri.parse(url));
-                                      } else {
-                                        throw 'Could not launch $url';
-                                      }
-                                    },
-                                  ),
-                                  const SizedBox(width: 8),
-                                  Flexible(
-                                    child: PlayButton(
+                          Flexible(
+                            child: ProjectItem(
+                              appName: 'Calculadora do Bancário',
+                              appDescription:
+                                  'App direcionado para funcionários de bancos e instituições financeiras.',
+                              image:
+                                  'images/Calculadora_Screen_$_imageIndex.png',
+                              buttons: SizedBox(
+                                width: 300,
+                                child: Row(
+                                  children: [
+                                    GitButton(
+                                      text: false,
                                       onPressed: () async {
                                         const url =
-                                            'https://play.google.com/store/apps/details?id=br.com.danubioleite.calculadora_bancario';
+                                            'https://github.com/Danubio-Leite/calculadora_bancario';
                                         if (await canLaunchUrl(
                                             Uri.parse(url))) {
                                           await launchUrl(Uri.parse(url));
@@ -142,28 +134,45 @@ class _ProjectsWebPageState extends State<ProjectsWebPage> {
                                         }
                                       },
                                     ),
-                                  ),
-                                ],
+                                    const SizedBox(width: 8),
+                                    Flexible(
+                                      child: PlayButton(
+                                        onPressed: () async {
+                                          const url =
+                                              'https://play.google.com/store/apps/details?id=br.com.danubioleite.calculadora_bancario';
+                                          if (await canLaunchUrl(
+                                              Uri.parse(url))) {
+                                            await launchUrl(Uri.parse(url));
+                                          } else {
+                                            throw 'Could not launch $url';
+                                          }
+                                        },
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ),
                           const SizedBox(width: 16),
-                          ProjectItem(
-                            appName: 'Minha Biblioteca',
-                            appDescription:
-                                'App para gestão de coleções de livros.',
-                            image: 'images/Livros_Screen_$_imageIndex.png',
-                            buttons: GitButton(
-                              text: true,
-                              onPressed: () async {
-                                const url =
-                                    'https://github.com/Danubio-Leite/private_library';
-                                if (await canLaunchUrl(Uri.parse(url))) {
-                                  await launchUrl(Uri.parse(url));
-                                } else {
-                                  throw 'Could not launch $url';
-                                }
-                              },
+                          Flexible(
+                            child: ProjectItem(
+                              appName: 'Minha Biblioteca',
+                              appDescription:
+                                  'App para gestão de coleções de livros.',
+                              image: 'images/Livros_Screen_$_imageIndex.png',
+                              buttons: GitButton(
+                                text: true,
+                                onPressed: () async {
+                                  const url =
+                                      'https://github.com/Danubio-Leite/private_library';
+                                  if (await canLaunchUrl(Uri.parse(url))) {
+                                    await launchUrl(Uri.parse(url));
+                                  } else {
+                                    throw 'Could not launch $url';
+                                  }
+                                },
+                              ),
                             ),
                           ),
                         ],
