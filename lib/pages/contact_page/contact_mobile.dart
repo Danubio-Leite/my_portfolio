@@ -39,7 +39,7 @@ class _ContactMobilePageState extends State<ContactMobilePage> {
               ]),
           // color: Colors.white,
         ),
-        height: MediaQuery.of(context).size.height - 68,
+        height: MediaQuery.of(context).size.height - 48,
         child: Form(
           key: _formKey,
           child: Column(

@@ -30,14 +30,14 @@ class HomeMobilePage extends StatelessWidget {
               ]),
         ),
         // color: Colors.white,
-        height: MediaQuery.of(context).size.height,
+        height: MediaQuery.of(context).size.height - 40,
         child: Container(
           width: width,
           padding: EdgeInsets.only(
             left: width / 10,
             right: width / 10,
             top: width / 22,
-            bottom: width / 20,
+            bottom: width / 30,
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
